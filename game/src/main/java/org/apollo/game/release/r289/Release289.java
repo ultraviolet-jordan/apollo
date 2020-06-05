@@ -1,6 +1,5 @@
 package org.apollo.game.release.r289;
 
-import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.apollo.game.message.impl.*;
 import org.apollo.net.meta.PacketMetaDataGroup;
 import org.apollo.net.release.Release;

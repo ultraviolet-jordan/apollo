@@ -4,11 +4,6 @@ import org.apollo.game.message.impl.IdAssignmentMessage;
 import org.apollo.net.codec.game.*;
 import org.apollo.net.release.MessageEncoder;
 
-/**
- * A {@link MessageEncoder} for the {@link IdAssignmentMessage}.
- *
- * @author Graham
- */
 public final class IdAssignmentMessageEncoder extends MessageEncoder<IdAssignmentMessage> {
 
 	@Override
