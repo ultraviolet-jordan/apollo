@@ -1,9 +1,6 @@
 package org.apollo.game.release.r289;
 
-import org.apollo.game.message.impl.PlayerSynchronizationMessage;
-import org.apollo.game.message.impl.RegionChangeMessage;
-import org.apollo.game.message.impl.ServerChatMessage;
-import org.apollo.game.message.impl.SwitchTabInterfaceMessage;
+import org.apollo.game.message.impl.*;
 import org.apollo.net.meta.PacketMetaDataGroup;
 import org.apollo.net.release.Release;
 
@@ -67,5 +64,6 @@ public class Release289 extends Release {
 		register(PlayerSynchronizationMessage.class, new PlayerSynchronizationMessageEncoder());
 		register(SwitchTabInterfaceMessage.class, new SwitchTabInterfaceMessageEncoder());
 		register(ServerChatMessage.class, new ServerMessageMessageEncoder());
+		register(UpdateSkillMessage.class, new UpdateSkillMessageEncoder());
 	}
 }
