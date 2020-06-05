@@ -58,6 +58,7 @@ public class Release289 extends Release {
 		register(67, walkMessageDecoder);
 
 		register(156, new PublicChatMessageDecoder());
+		register(86, new ButtonMessageDecoder());
 
 		//encoders
 		register(RegionChangeMessage.class, new RegionChangeMessageEncoder());
