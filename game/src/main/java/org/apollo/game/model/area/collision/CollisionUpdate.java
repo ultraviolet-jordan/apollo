@@ -187,6 +187,9 @@ public final class CollisionUpdate {
 		 */
 		public void object(GameObject object) {
 			ObjectDefinition definition = object.getDefinition();
+			if (definition == null) {
+				return;
+			}
 			Position position = object.getPosition();
 			int type = object.getType();
 

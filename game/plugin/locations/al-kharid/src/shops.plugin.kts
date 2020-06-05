@@ -56,7 +56,7 @@ shop("Dommik's Crafting Store") {
     category("mould") {
         sell(3) of "Holy"
         sell(10) of "Sickle"
-        sell(10) of "Tiara"
+//        sell(10) of "Tiara"
     }
 }
 

@@ -26,6 +26,6 @@ shop("Oziach's Armour") {
     operated by "Oziach"
 
     sell(2) of "Rune platebody"
-    sell(2) of "Green d'hide body"
-    sell(35) of "Anti-dragon shield"
+//    sell(2) of "Green d'hide body"
+//    sell(35) of "Anti-dragon shield"
 }

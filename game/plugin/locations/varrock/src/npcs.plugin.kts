@@ -31,8 +31,8 @@ spawnNpc("giant_rat", id = 87, x = 3267, y = 3381)
 
 spawnNpc("guard", id = 368, x = 3263, y = 3407, facing = Direction.SOUTH)
 
-spawnNpc("jeremy_clerksin", x = 3253, y = 3477)
-spawnNpc("martina_scorsby", x = 3256, y = 3481)
+//spawnNpc("jeremy_clerksin", x = 3253, y = 3477)
+//spawnNpc("martina_scorsby", x = 3256, y = 3481)
 
 spawnNpc("man", x = 3281, y = 3500)
 spawnNpc("man", x = 3193, y = 3394)
@@ -49,7 +49,7 @@ spawnNpc("man", id = 3, x = 3231, y = 3399, z = 1)
 spawnNpc("mugger", x = 3251, y = 3390)
 spawnNpc("mugger", x = 3177, y = 3363)
 
-spawnNpc("tramp", id = 2792, x = 3177, y = 3363)
+//spawnNpc("tramp", id = 2792, x = 3177, y = 3363)
 
 spawnNpc("woman", x = 3221, y = 3396)
 
@@ -126,12 +126,12 @@ spawnNpc("warrior_woman", x = 3205, y = 3493)
 
 // Varrock/Lumbridge Pen
 
-spawnNpc("swan", x = 3261, y = 3354)
-spawnNpc("swan", x = 3260, y = 3356)
+//spawnNpc("swan", x = 3261, y = 3354)
+//spawnNpc("swan", x = 3260, y = 3356)
 
-spawnNpc("ram", id = 3673, x = 3238, y = 3346)
-spawnNpc("ram", id = 3673, x = 3248, y = 3352)
-spawnNpc("ram", id = 3673, x = 3260, y = 3348)
+//spawnNpc("ram", id = 3673, x = 3238, y = 3346)
+//spawnNpc("ram", id = 3673, x = 3248, y = 3352)
+//spawnNpc("ram", id = 3673, x = 3260, y = 3348)
 
 spawnNpc("sheep", id = 42, x = 3263, y = 3347)
 spawnNpc("sheep", id = 42, x = 3268, y = 3350)
@@ -139,9 +139,9 @@ spawnNpc("sheep", id = 42, x = 3252, y = 3352)
 spawnNpc("sheep", id = 42, x = 3243, y = 3344)
 spawnNpc("sheep", id = 42, x = 3235, y = 3347)
 
-spawnNpc("sheep", id = 3579, x = 3234, y = 3344)
-spawnNpc("sheep", id = 3579, x = 3241, y = 3347)
-spawnNpc("sheep", id = 3579, x = 3257, y = 3350)
+//spawnNpc("sheep", id = 3579, x = 3234, y = 3344)
+//spawnNpc("sheep", id = 3579, x = 3241, y = 3347)
+//spawnNpc("sheep", id = 3579, x = 3257, y = 3350)
 
 // Champions Guild
 
@@ -152,7 +152,7 @@ spawnNpc("chicken", x = 3195, y = 3355)
 spawnNpc("chicken", id = 1017, x = 3196, y = 3353)
 spawnNpc("chicken", id = 1017, x = 3197, y = 3356)
 
-spawnNpc("evil_chicken", x = 3198, y = 3359)
+//spawnNpc("evil_chicken", x = 3198, y = 3359)
 
 // Function Npc
 
@@ -166,7 +166,7 @@ spawnNpc("dimintheis", x = 3280, y = 3403)
 
 spawnNpc("dr_harlow", x = 3224, y = 3398)
 
-spawnNpc("ellamaria", x = 3228, y = 3475)
+//spawnNpc("ellamaria", x = 3228, y = 3475)
 
 spawnNpc("father_lawrence", x = 3253, y = 3484)
 
@@ -178,7 +178,7 @@ spawnNpc("guild_master", x = 3189, y = 3360)
 
 spawnNpc("gypsy", x = 3203, y = 3423)
 
-spawnNpc("hooknosed_jack", x = 3268, y = 3400)
+//spawnNpc("hooknosed_jack", x = 3268, y = 3400)
 
 spawnNpc("jonny_the_beard", x = 3223, y = 3395)
 
@@ -188,9 +188,9 @@ spawnNpc("katrine", x = 3185, y = 3386)
 
 spawnNpc("king_roald", x = 3223, y = 3473)
 
-spawnNpc("master_farmer", x = 3243, y = 3349)
+//spawnNpc("master_farmer", x = 3243, y = 3349)
 
-spawnNpc("pox", x = 3267, y = 3399)
+//spawnNpc("pox", x = 3267, y = 3399)
 
 spawnNpc("reldo", x = 3210, y = 3492)
 
@@ -200,11 +200,11 @@ spawnNpc("shilop", x = 3211, y = 3435)
 
 spawnNpc("sir_prysin", x = 3204, y = 3472)
 
-spawnNpc("tarquin", x = 3203, y = 3344, facing = Direction.SOUTH)
+//spawnNpc("tarquin", x = 3203, y = 3344, facing = Direction.SOUTH)
 
-spawnNpc("tool_leprechaun", x = 3182, y = 3355)
+//spawnNpc("tool_leprechaun", x = 3182, y = 3355)
 
-spawnNpc("tool_leprechaun", x = 3229, y = 3455)
+//spawnNpc("tool_leprechaun", x = 3229, y = 3455)
 
 spawnNpc("tramp", id = 641, x = 3207, y = 3392)
 
@@ -218,7 +218,7 @@ spawnNpc("baraek", x = 3217, y = 3434)
 
 spawnNpc("bartender", x = 3226, y = 3400)
 
-spawnNpc("bartender", id = 1921, x = 3277, y = 3487)
+//spawnNpc("bartender", id = 1921, x = 3277, y = 3487)
 
 spawnNpc("fancy_dress_shop_owner", x = 3281, y = 3398)
 
@@ -242,9 +242,9 @@ spawnNpc("zaff", x = 3203, y = 3434)
 
 // Juliet House
 
-spawnNpc("draul_leptoc", x = 3228, y = 3475)
+//spawnNpc("draul_leptoc", x = 3228, y = 3475)
 spawnNpc("juliet", x = 3159, y = 3425, z = 1)
-spawnNpc("phillipa", x = 3160, y = 3429, z = 1)
+//spawnNpc("phillipa", x = 3160, y = 3429, z = 1)
 
 // Gertrude House
 

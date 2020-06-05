@@ -2,7 +2,6 @@ package org.apollo.game.plugin.skill.runecrafting
 
 import org.apollo.game.message.impl.*
 import org.apollo.game.model.entity.EquipmentConstants
-import org.apollo.game.model.event.impl.LoginEvent
 
 private val changeAltarObjectConfigId = 491
 
@@ -16,14 +15,14 @@ start {
     RUNES.addAll(DefaultRune.values())
 }
 
-on_player_event { LoginEvent::class }
-    .then {
-        val equippedHat = player.equipment.get(EquipmentConstants.HAT)
-        val equippedTiaraConfig = equippedHat?.let { item -> Tiara.findById(item.id)?.configId } ?: 0
-        val configValue = 1 shl equippedTiaraConfig
-
-        player.send(ConfigMessage(changeAltarObjectConfigId, configValue))
-    }
+//on_player_event { LoginEvent::class }
+//    .then {
+//        val equippedHat = player.equipment.get(EquipmentConstants.HAT)
+//        val equippedTiaraConfig = equippedHat?.let { item -> Tiara.findById(item.id)?.configId } ?: 0
+//        val configValue = 1 shl equippedTiaraConfig
+//
+//        player.send(ConfigMessage(changeAltarObjectConfigId, configValue))
+//    }
 
 on { ObjectActionMessage::class }
     .where { option == 2 }

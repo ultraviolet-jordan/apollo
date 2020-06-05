@@ -56,7 +56,10 @@ public final class ObjectDefinition {
 	 * @throws IndexOutOfBoundsException If the id is out of bounds.
 	 */
 	public static ObjectDefinition lookup(int id) {
-		Preconditions.checkElementIndex(id, definitions.length, "Id out of bounds.");
+//		Preconditions.checkElementIndex(id, definitions.length, "Id out of bounds.");
+		if (id >= definitions.length) {
+			return null;
+		}
 		return definitions[id];
 	}
 

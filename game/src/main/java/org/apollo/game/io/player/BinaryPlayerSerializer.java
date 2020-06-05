@@ -79,7 +79,7 @@ public final class BinaryPlayerSerializer extends PlayerSerializer {
 	public PlayerLoaderResponse loadPlayer(PlayerCredentials credentials) throws IOException {
 		Path path = getFile(credentials.getUsername());
 		if (!Files.exists(path)) {
-			Player player = new Player(world, credentials, TUTORIAL_ISLAND_SPAWN);
+			Player player = new Player(world, credentials, LUMBRIDGE_SPAWN);
 
 			credentials.setPassword(SCryptUtil.scrypt(credentials.getPassword(), 16384, 8, 1));
 			return new PlayerLoaderResponse(LoginConstants.STATUS_OK, player);

@@ -23,11 +23,11 @@ spawnNpc("scorpion", x = 3282, y = 3149)
 
 // Camels
 
-spawnNpc("cam_the_camel", x = 3295, y = 3232)
-spawnNpc("elly_the_camel", x = 3312, y = 3210)
+//spawnNpc("cam_the_camel", x = 3295, y = 3232)
+//spawnNpc("elly_the_camel", x = 3312, y = 3210)
 spawnNpc("camel", x = 3285, y = 3198)
-spawnNpc("ollie_the_camel", x = 3291, y = 3209)
-spawnNpc("al_the_camel", x = 3275, y = 3162)
+//spawnNpc("ollie_the_camel", x = 3291, y = 3209)
+//spawnNpc("al_the_camel", x = 3275, y = 3162)
 
 // Quest npc
 
@@ -35,7 +35,7 @@ spawnNpc("osman", x = 3286, y = 3180, facing = Direction.EAST)
 
 spawnNpc("hassan", x = 3302, y = 3163)
 
-spawnNpc("father_reen", x = 3272, y = 3158)
+//spawnNpc("father_reen", x = 3272, y = 3158)
 
 spawnNpc("man", id = 663, x = 3297, y = 3287)
 
@@ -92,7 +92,7 @@ spawnNpc("zeke", x = 3289, y = 3189)
 
 spawnNpc("shantay", x = 3304, y = 3124)
 
-spawnNpc("rug_merchant", id = 2296, x = 3311, y = 3109, facing = Direction.WEST)
+//spawnNpc("rug_merchant", id = 2296, x = 3311, y = 3109, facing = Direction.WEST)
 
 spawnNpc("ranael", x = 3315, y = 3163)
 
@@ -101,14 +101,14 @@ spawnNpc("shop_assistant", id = 525, x = 3315, y = 3180, facing = Direction.WEST
 
 spawnNpc("louie_legs", x = 3316, y = 3175, facing = Direction.WEST)
 
-spawnNpc("ellis", x = 3274, y = 3192)
+//spawnNpc("ellis", x = 3274, y = 3192)
 
 spawnNpc("dommik", x = 3321, y = 3193)
 
-spawnNpc("tool_leprechaun", x = 3319, y = 3204)
+//spawnNpc("tool_leprechaun", x = 3319, y = 3204)
 
-spawnNpc("ali_morrisane", x = 3304, y = 3211, facing = Direction.EAST)
+//spawnNpc("ali_morrisane", x = 3304, y = 3211, facing = Direction.EAST)
 
 spawnNpc("silk_trader", x = 3300, y = 3203)
 
-spawnNpc("karim", x = 3273, y = 3180)
+//spawnNpc("karim", x = 3273, y = 3180)

@@ -12,16 +12,16 @@ spawn_npc name: :spider_61, x: 3323, y: 3138
 spawn_npc name: :scorpion, x: 3282, y: 3149
 
 # Camels
-spawn_npc name: :cam_the_camel, x: 3295, y: 3232
-spawn_npc name: :elly_the_camel, x: 3312, y: 3210
+# spawn_npc name: :cam_the_camel, x: 3295, y: 3232
+# spawn_npc name: :elly_the_camel, x: 3312, y: 3210
 spawn_npc name: :camel, x: 3285, y: 3198
-spawn_npc name: :ollie_the_camel, x: 3291, y: 3209
-spawn_npc name: :al_the_camel, x: 3275, y: 3162
+# spawn_npc name: :ollie_the_camel, x: 3291, y: 3209
+# spawn_npc name: :al_the_camel, x: 3275, y: 3162
 
 # Quest npc
 spawn_npc name: :osman, x: 3286, y: 3180, face: :east
 spawn_npc name: :hassan, x: 3302, y: 3163
-spawn_npc name: :father_reen, x: 3272, y: 3158
+# spawn_npc name: :father_reen, x: 3272, y: 3158
 spawn_npc name: :man_663, x: 3297, y: 3287
 
 # Boarder guards
@@ -74,16 +74,16 @@ spawn_npc name: :gem_trader, x: 3287, y: 3210
 spawn_npc name: :zeke,       x: 3289, y: 3189
 spawn_npc name: :shantay,    x: 3304, y: 3124
 
-spawn_npc name: :rug_merchant_2296,  x: 3311, y: 3109, face: :west
+# spawn_npc name: :rug_merchant_2296,  x: 3311, y: 3109, face: :west
 spawn_npc name: :ranael,             x: 3315, y: 3163, face: :north
 
 spawn_npc name: :shop_assistant_525, x: 3315, y: 3178, face: :north
 spawn_npc name: :shop_keeper_524,    x: 3315, y: 3180, face: :west
 spawn_npc name: :louie_legs,         x: 3316, y: 3175, face: :west
-spawn_npc name: :ellis, x: 3274, y: 3192
+# spawn_npc name: :ellis, x: 3274, y: 3192
 spawn_npc name: :dommik, x: 3321, y: 3193
 
-spawn_npc name: :tool_leprechaun, x: 3319, y: 3204
-spawn_npc name: :ali_morrisane, x: 3304, y: 3211, face: :east
+# spawn_npc name: :tool_leprechaun, x: 3319, y: 3204
+# spawn_npc name: :ali_morrisane, x: 3304, y: 3211, face: :east
 spawn_npc name: :silk_trader, x: 3300, y: 3203
-spawn_npc name: :karim, x: 3273, y: 3180
+# spawn_npc name: :karim, x: 3273, y: 3180
