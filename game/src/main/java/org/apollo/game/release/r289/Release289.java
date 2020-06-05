@@ -66,5 +66,6 @@ public class Release289 extends Release {
 		register(SwitchTabInterfaceMessage.class, new SwitchTabInterfaceMessageEncoder());
 		register(ServerChatMessage.class, new ServerMessageMessageEncoder());
 		register(UpdateSkillMessage.class, new UpdateSkillMessageEncoder());
+		register(ConfigMessage.class, new ConfigMessageEncoder());
 	}
 }
