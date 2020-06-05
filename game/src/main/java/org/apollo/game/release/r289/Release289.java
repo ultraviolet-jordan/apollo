@@ -1,5 +1,6 @@
 package org.apollo.game.release.r289;
 
+import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.apollo.game.message.impl.*;
 import org.apollo.net.meta.PacketMetaDataGroup;
 import org.apollo.net.release.Release;
@@ -67,5 +68,6 @@ public class Release289 extends Release {
 		register(ServerChatMessage.class, new ServerMessageMessageEncoder());
 		register(UpdateSkillMessage.class, new UpdateSkillMessageEncoder());
 		register(ConfigMessage.class, new ConfigMessageEncoder());
+		register(IdAssignmentMessage.class, new IdAssignmentMessageEncoder());
 	}
 }
