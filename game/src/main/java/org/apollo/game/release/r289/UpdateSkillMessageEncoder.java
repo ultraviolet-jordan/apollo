@@ -2,7 +2,6 @@ package org.apollo.game.release.r289;
 
 import org.apollo.game.message.impl.UpdateSkillMessage;
 import org.apollo.game.model.entity.Skill;
-import org.apollo.net.codec.game.DataOrder;
 import org.apollo.net.codec.game.DataType;
 import org.apollo.net.codec.game.GamePacket;
 import org.apollo.net.codec.game.GamePacketBuilder;
