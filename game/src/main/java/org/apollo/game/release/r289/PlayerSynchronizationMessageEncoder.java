@@ -76,8 +76,8 @@ public final class PlayerSynchronizationMessageEncoder extends MessageEncoder<Pl
 	 */
 	private static void putAnimationBlock(AnimationBlock block, GamePacketBuilder builder) {
 		Animation animation = block.getAnimation();
-		builder.put(DataType.SHORT, DataOrder.LITTLE, animation.getId());
-		builder.put(DataType.BYTE, DataTransformation.NEGATE, animation.getDelay());
+		builder.put(DataType.SHORT, animation.getId());
+		builder.put(DataType.BYTE, animation.getDelay());
 	}
 
 	/**
@@ -209,6 +209,9 @@ public final class PlayerSynchronizationMessageEncoder extends MessageEncoder<Pl
 			if (blockSet.contains(AppearanceBlock.class)) {
 				mask |= 0x1;
 			}
+			if (blockSet.contains(AnimationBlock.class)) {
+				mask |= 0x2;
+			}
 			if (blockSet.contains(ChatBlock.class)) {
 				mask |= 0x40;
 			}
@@ -222,6 +225,9 @@ public final class PlayerSynchronizationMessageEncoder extends MessageEncoder<Pl
 
 			if (blockSet.contains(AppearanceBlock.class)) {
 				putAppearanceBlock(blockSet.get(AppearanceBlock.class), builder);
+			}
+			if (blockSet.contains(AnimationBlock.class)) {
+				putAnimationBlock(blockSet.get(AnimationBlock.class), builder);
 			}
 			if (blockSet.contains(ChatBlock.class)) {
 				putChatBlock(blockSet.get(ChatBlock.class), builder);
