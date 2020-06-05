@@ -215,6 +215,9 @@ public final class PlayerSynchronizationMessageEncoder extends MessageEncoder<Pl
 			if (blockSet.contains(ChatBlock.class)) {
 				mask |= 0x40;
 			}
+			if (blockSet.contains(GraphicBlock.class)) {
+				mask |= 0x100;
+			}
 
 			if (mask >= 0x100) {
 				mask |= 0x80;
@@ -231,6 +234,9 @@ public final class PlayerSynchronizationMessageEncoder extends MessageEncoder<Pl
 			}
 			if (blockSet.contains(ChatBlock.class)) {
 				putChatBlock(blockSet.get(ChatBlock.class), builder);
+			}
+			if (blockSet.contains(GraphicBlock.class)) {
+				putGraphicBlock(blockSet.get(GraphicBlock.class), builder);
 			}
 		}
 	}
@@ -283,7 +289,7 @@ public final class PlayerSynchronizationMessageEncoder extends MessageEncoder<Pl
 	 */
 	private static void putGraphicBlock(GraphicBlock block, GamePacketBuilder builder) {
 		Graphic graphic = block.getGraphic();
-		builder.put(DataType.SHORT, DataOrder.LITTLE, graphic.getId());
+		builder.put(DataType.SHORT, graphic.getId());
 		builder.put(DataType.INT, graphic.getHeight() << 16 | graphic.getDelay() & 0xFFFF);
 	}
 
