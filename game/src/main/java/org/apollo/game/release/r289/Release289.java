@@ -13,7 +13,7 @@ public class Release289 extends Release {
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 0
 		6, 0, 0, 0, 0, 0, 8, 0, 0, 0, // 10
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 20
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 30
+		0, 0, 0, 0, -1, 0, 0, 0, 0, 0, // 30
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 40
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 50
 		0, 0, 0, 0, 0, 0, 0, -1, 0, 0, // 60
@@ -59,6 +59,7 @@ public class Release289 extends Release {
 
 		register(156, new PublicChatMessageDecoder());
 		register(86, new ButtonMessageDecoder());
+		register(34, new CommandMessageDecoder());
 
 		//encoders
 		register(RegionChangeMessage.class, new RegionChangeMessageEncoder());
