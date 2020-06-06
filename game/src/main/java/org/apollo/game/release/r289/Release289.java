@@ -69,5 +69,6 @@ public class Release289 extends Release {
 		register(ConfigMessage.class, new ConfigMessageEncoder());
 		register(IdAssignmentMessage.class, new IdAssignmentMessageEncoder());
 		register(FriendServerStatusMessage.class, new FriendServerStatusMessageEncoder());
+		register(IgnoreListMessage.class, new IgnoreListMessageEncoder());
 	}
 }
