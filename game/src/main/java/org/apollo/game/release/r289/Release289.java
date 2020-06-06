@@ -71,5 +71,7 @@ public class Release289 extends Release {
 		register(FriendServerStatusMessage.class, new FriendServerStatusMessageEncoder());
 		register(IgnoreListMessage.class, new IgnoreListMessageEncoder());
 		register(SendFriendMessage.class, new SendFriendMessageEncoder());
+		register(UpdateItemsMessage.class, new UpdateItemsMessageEncoder());
+		register(UpdateSlottedItemsMessage.class, new UpdateSlottedItemsMessageEncoder());
 	}
 }
