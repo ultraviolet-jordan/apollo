@@ -1,6 +1,7 @@
 package org.apollo.game.fs.decoder;
 
 import org.apollo.cache.IndexedFileSystem;
+import org.apollo.cache.def.ObjectDefinition;
 import org.apollo.cache.map.MapIndex;
 import org.apollo.cache.map.MapObject;
 import org.apollo.cache.map.MapObjectsDecoder;
@@ -12,8 +13,10 @@ import org.apollo.game.model.entity.obj.StaticGameObject;
 
 import java.io.IOException;
 import java.io.UncheckedIOException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * A decoder which decodes {@link MapObject}s and registers them with the game world.
@@ -57,7 +60,7 @@ public final class WorldObjectsDecoder implements Runnable {
 		try {
 			for (MapIndex index : mapIndices.values()) {
 				MapObjectsDecoder decoder = MapObjectsDecoder.create(fs, index);
-				List<MapObject> objects = decoder.decode();
+				List<MapObject> objects = decoder.decode().stream().filter(mapObject -> mapObject.getId() < ObjectDefinition.count()).collect(Collectors.toList());
 
 				int mapX = index.getX(), mapY = index.getY();
 
