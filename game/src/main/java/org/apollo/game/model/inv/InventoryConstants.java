@@ -10,7 +10,7 @@ public final class InventoryConstants {
 	/**
 	 * The capacity of the bank.
 	 */
-	public static final int BANK_CAPACITY = 250;
+	public static final int BANK_CAPACITY = 288;
 
 	/**
 	 * The capacity of the equipment inventory.
