@@ -1,6 +1,12 @@
 import org.apollo.game.message.impl.AddFriendMessage
+import org.apollo.game.message.impl.FriendServerStatusMessage
+import org.apollo.game.message.impl.IgnoreListMessage
 import org.apollo.game.message.impl.SendFriendMessage
+import org.apollo.game.model.World
+import org.apollo.game.model.entity.Player
 import org.apollo.game.model.entity.setting.PrivacyState
+import org.apollo.game.model.entity.setting.ServerStatus
+import org.apollo.game.model.event.impl.LoginEvent
 
 on { AddFriendMessage::class }
     .then {
@@ -19,3 +25,43 @@ on { AddFriendMessage::class }
             friend.send(SendFriendMessage(it.username, it.worldId))
         }
     }
+
+on_player_event { LoginEvent::class }
+    .then {
+        it.send(FriendServerStatusMessage(ServerStatus.CONNECTING))
+        if (it.ignoredUsernames.size > 0) {
+            it.send(IgnoreListMessage(it.ignoredUsernames))
+        }
+
+        val username = it.username
+        val iterator = it.friendUsernames.iterator();
+
+        while (iterator.hasNext()) {
+            val friendUsername = iterator.next()
+            val friend = it.world.getPlayer(friendUsername)
+            val world = if (friend == null || !viewable(friend, username)) 0 else friend.worldId
+
+            it.send(SendFriendMessage(friendUsername, world))
+        }
+
+        it.send(FriendServerStatusMessage(ServerStatus.ONLINE))
+        updateFriends(player, it.world)
+    }
+
+fun viewable(player: Player, otherUsername: String): Boolean {
+    val privacy = player.friendPrivacy
+    return privacy != PrivacyState.OFF && player.friendsWith(otherUsername) || privacy == PrivacyState.ON
+}
+
+fun updateFriends(player: Player, world: World) {
+    val iterator = world.playerRepository.iterator()
+    val username = player.username
+
+    while (iterator.hasNext()) {
+        val other = iterator.next()
+        if (!other.friendsWith(username) || other == player) continue
+
+        val worldId = if (viewable(player, other.username)) player.worldId else 0
+        other.send(SendFriendMessage(username, worldId))
+    }
+}
