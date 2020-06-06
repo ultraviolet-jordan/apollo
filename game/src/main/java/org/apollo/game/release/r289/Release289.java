@@ -14,10 +14,10 @@ public class Release289 extends Release {
 		6, 0, 0, 0, 0, 0, 8, 0, 0, 0, // 10
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 20
 		0, 0, 0, 0, -1, 0, 0, 0, 0, 0, // 30
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 40
+		6, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 40
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 50
 		0, 0, 0, 0, 0, 0, 0, -1, 0, 0, // 60
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 70
+		0, 0, 0, 0, 0, 0, 6, 0, 0, 0, // 70
 		0, 0, 0, 0, 0, 0, 2, 0, 0, 0, // 80
 		0, 0, 0, 0, 10, 0, 0, 0, 0, 0, // 90
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 100
@@ -27,7 +27,7 @@ public class Release289 extends Release {
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 1, // 140
 		0, 0, 0, 0, 0, 0, -1, 0, 0, 0, // 150
 		0, 3, 0, 0, 0, 0, 0, 0, 0, 0, // 160
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 170
+		0, 0, 0, 0, 0, 0, 0, 6, 0, 0, // 170
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 180
 		0, 0, 0, 4, 0, 0, 0, 0, 0, 0, // 190
 		0, 0, 0, 0, 4, 0, 0, 0, 0, 0, // 200
@@ -60,6 +60,8 @@ public class Release289 extends Release {
 		register(156, new PublicChatMessageDecoder());
 		register(86, new ButtonMessageDecoder());
 		register(34, new CommandMessageDecoder());
+
+		register(177, new SecondItemOptionMessageDecoder());
 
 		//encoders
 		register(RegionChangeMessage.class, new RegionChangeMessageEncoder());
