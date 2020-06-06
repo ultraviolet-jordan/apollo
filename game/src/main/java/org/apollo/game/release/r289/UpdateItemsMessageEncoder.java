@@ -17,8 +17,6 @@ public final class UpdateItemsMessageEncoder extends MessageEncoder<UpdateItemsM
 		builder.put(DataType.SHORT, message.getInterfaceId());
 		builder.put(DataType.SHORT, items.length);
 
-		System.out.println("HERE: " + message.getInterfaceId() + ", " + items.length);
-
 		for (Item item : items) {
 			int id = item == null ? -1 : item.getId();
 			int amount = item == null ? 0 : item.getAmount();
