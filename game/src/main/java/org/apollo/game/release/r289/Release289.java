@@ -35,7 +35,7 @@ public class Release289 extends Release {
 		0, 0, 0, 0, 4, 0, 0, 0, 0, 0, // 220
 		0, 0, 0, 0, -1, 0, -1, 0, 0, 0, // 230
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 240
-		0, 0, 2, 0, 0, 0 // 250
+		0, 0, 2, 7, 0, 0 // 250
 	};
 
 
@@ -64,6 +64,8 @@ public class Release289 extends Release {
 		register(177, new SecondItemOptionMessageDecoder());
 
 		register(44, new FirstItemActionMessageDecoder());
+
+		register(253, new SwitchItemMessageDecoder());
 
 		//encoders
 		register(RegionChangeMessage.class, new RegionChangeMessageEncoder());
