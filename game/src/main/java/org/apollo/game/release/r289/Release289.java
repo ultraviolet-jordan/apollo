@@ -11,7 +11,7 @@ public class Release289 extends Release {
 	 */
 	public static final int[] PACKET_LENGTHS = {
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 0
-		0, 0, 0, 0, 0, 0, 8, 0, 0, 0, // 10
+		6, 0, 0, 0, 0, 0, 8, 0, 0, 0, // 10
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 20
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 30
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 40
@@ -30,12 +30,12 @@ public class Release289 extends Release {
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 170
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 180
 		0, 0, 0, 4, 0, 0, 0, 0, 0, 0, // 190
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 200
+		0, 0, 0, 0, 4, 0, 0, 0, 0, 0, // 200
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 210
 		0, 0, 0, 0, 4, 0, 0, 0, 0, 0, // 220
 		0, 0, 0, 0, -1, 0, -1, 0, 0, 0, // 230
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 240
-		0, 0, 0, 0, 0, 0 // 250
+		0, 0, 2, 0, 0, 0 // 250
 	};
 
 
@@ -73,5 +73,6 @@ public class Release289 extends Release {
 		register(SendFriendMessage.class, new SendFriendMessageEncoder());
 		register(UpdateItemsMessage.class, new UpdateItemsMessageEncoder());
 		register(UpdateSlottedItemsMessage.class, new UpdateSlottedItemsMessageEncoder());
+		register(NpcSynchronizationMessage.class, new NpcSynchronizationMessageEncoder());
 	}
 }
