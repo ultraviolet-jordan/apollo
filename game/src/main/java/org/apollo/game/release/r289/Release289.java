@@ -84,5 +84,6 @@ public class Release289 extends Release {
 		register(UpdateItemsMessage.class, new UpdateItemsMessageEncoder());
 		register(UpdateSlottedItemsMessage.class, new UpdateSlottedItemsMessageEncoder());
 		register(NpcSynchronizationMessage.class, new NpcSynchronizationMessageEncoder());
+		register(PrivacyOptionMessage.class, new PrivacyOptionMessageEncoder());
 	}
 }
