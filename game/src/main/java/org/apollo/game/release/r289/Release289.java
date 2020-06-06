@@ -68,6 +68,7 @@ public class Release289 extends Release {
 		register(253, new SwitchItemMessageDecoder());
 
 		register(235, new AddFriendMessageDecoder());
+		register(161, new PrivacyOptionMessageDecoder());
 
 		//encoders
 		register(RegionChangeMessage.class, new RegionChangeMessageEncoder());
