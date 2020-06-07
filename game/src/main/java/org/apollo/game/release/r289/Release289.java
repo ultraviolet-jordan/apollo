@@ -92,5 +92,6 @@ public class Release289 extends Release {
 		register(NpcSynchronizationMessage.class, new NpcSynchronizationMessageEncoder());
 		register(PrivacyOptionMessage.class, new PrivacyOptionMessageEncoder());
 		register(ForwardPrivateChatMessage.class, new ForwardPrivateChatMessageEncoder());
+		register(OpenInterfaceSidebarMessage.class, new OpenInterfaceSidebarMessageEncoder());
 	}
 }
