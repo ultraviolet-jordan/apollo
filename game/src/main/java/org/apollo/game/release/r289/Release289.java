@@ -97,5 +97,6 @@ public class Release289 extends Release {
 		register(OpenInterfaceSidebarMessage.class, new OpenInterfaceSidebarMessageEncoder());
 		register(UpdateRunEnergyMessage.class, new UpdateRunEnergyMessageEncoder());
 		register(UpdateWeightMessage.class, new UpdateWeightMessageEncoder());
+		register(SetPlayerActionMessage.class, new SetPlayerActionMessageEncoder());
 	}
 }
