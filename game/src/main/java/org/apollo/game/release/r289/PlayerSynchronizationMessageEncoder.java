@@ -212,6 +212,9 @@ public final class PlayerSynchronizationMessageEncoder extends MessageEncoder<Pl
 			if (blockSet.contains(AnimationBlock.class)) {
 				mask |= 0x2;
 			}
+			if (blockSet.contains(InteractingMobBlock.class)) {
+				mask |= 0x4;
+			}
 			if (blockSet.contains(ChatBlock.class)) {
 				mask |= 0x40;
 			}
@@ -231,6 +234,9 @@ public final class PlayerSynchronizationMessageEncoder extends MessageEncoder<Pl
 			}
 			if (blockSet.contains(AnimationBlock.class)) {
 				putAnimationBlock(blockSet.get(AnimationBlock.class), builder);
+			}
+			if (blockSet.contains(InteractingMobBlock.class)) {
+				putInteractingMobBlock(blockSet.get(InteractingMobBlock.class), builder);
 			}
 			if (blockSet.contains(ChatBlock.class)) {
 				putChatBlock(blockSet.get(ChatBlock.class), builder);
@@ -313,7 +319,7 @@ public final class PlayerSynchronizationMessageEncoder extends MessageEncoder<Pl
 	 * @param builder The builder.
 	 */
 	private static void putInteractingMobBlock(InteractingMobBlock block, GamePacketBuilder builder) {
-		builder.put(DataType.SHORT, DataOrder.LITTLE, block.getIndex());
+		builder.put(DataType.SHORT, block.getIndex());
 	}
 
 	/**
