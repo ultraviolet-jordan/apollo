@@ -230,6 +230,9 @@ public final class PlayerSynchronizationMessageEncoder extends MessageEncoder<Pl
 			if (blockSet.contains(GraphicBlock.class)) {
 				mask |= 0x100;
 			}
+			if (blockSet.contains(ForceMovementBlock.class)) {
+				mask |= 0x200;
+			}
 
 			if (mask >= 0x100) {
 				mask |= 0x80;
@@ -261,6 +264,9 @@ public final class PlayerSynchronizationMessageEncoder extends MessageEncoder<Pl
 			}
 			if (blockSet.contains(GraphicBlock.class)) {
 				putGraphicBlock(blockSet.get(GraphicBlock.class), builder);
+			}
+			if (blockSet.contains(ForceMovementBlock.class)) {
+				putForceMovementBlock(blockSet.get(ForceMovementBlock.class), builder);
 			}
 		}
 	}
@@ -296,13 +302,13 @@ public final class PlayerSynchronizationMessageEncoder extends MessageEncoder<Pl
 	 * @param builder The builder.
 	 */
 	private static void putForceMovementBlock(ForceMovementBlock block, GamePacketBuilder builder) {
-		builder.put(DataType.BYTE, DataTransformation.SUBTRACT, block.getInitialX());
-		builder.put(DataType.BYTE, DataTransformation.SUBTRACT, block.getInitialY());
-		builder.put(DataType.BYTE, DataTransformation.SUBTRACT, block.getFinalX());
-		builder.put(DataType.BYTE, DataTransformation.SUBTRACT, block.getFinalY());
-		builder.put(DataType.SHORT, DataOrder.LITTLE, DataTransformation.ADD, block.getTravelDurationX());
-		builder.put(DataType.SHORT, DataTransformation.ADD, block.getTravelDurationY());
-		builder.put(DataType.BYTE, DataTransformation.SUBTRACT, block.getDirection().toInteger());
+		builder.put(DataType.BYTE, block.getInitialX());
+		builder.put(DataType.BYTE, block.getInitialY());
+		builder.put(DataType.BYTE, block.getFinalX());
+		builder.put(DataType.BYTE, block.getFinalY());
+		builder.put(DataType.SHORT, block.getTravelDurationX());
+		builder.put(DataType.SHORT, block.getTravelDurationY());
+		builder.put(DataType.BYTE, block.getDirection().toInteger());
 	}
 
 	/**
