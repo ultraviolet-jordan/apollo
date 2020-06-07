@@ -35,7 +35,7 @@ public class Release289 extends Release {
 		0, 0, 0, 0, 4, 0, 0, 0, 0, 0, // 220
 		0, 0, 0, 0, -1, 8, -1, 0, 0, 0, // 230
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 240
-		0, 0, 2, 7, 0, 0 // 250
+		0, 8, 2, 7, 0, 0 // 250
 	};
 
 
@@ -70,6 +70,7 @@ public class Release289 extends Release {
 		register(235, new AddFriendMessageDecoder());
 		register(203, new RemoveFriendMessageDecoder());
 		register(192, new AddIgnoreMessageDecoder());
+		register(251, new RemoveIgnoreMessageDecoder());
 		register(161, new PrivacyOptionMessageDecoder());
 
 		//encoders
