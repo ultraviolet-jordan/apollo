@@ -986,7 +986,6 @@ public final class Player extends Mob {
 	public void toggleRunning() {
 		running = !running;
 		walkingQueue.setRunning(running);
-		send(new ConfigMessage(173, running ? 1 : 0));
 	}
 
 	/**
