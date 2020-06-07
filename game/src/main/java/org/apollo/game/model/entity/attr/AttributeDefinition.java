@@ -39,7 +39,7 @@ public final class AttributeDefinition<T> {
 	 * @return The AttributeDefinition.
 	 */
 	public static AttributeDefinition<Integer> forInt(int defaultValue, AttributePersistence persistence) {
-		return new AttributeDefinition<>(defaultValue, persistence, AttributeType.LONG);
+		return new AttributeDefinition<>(defaultValue, persistence, AttributeType.INT);
 	}
 
 	/**

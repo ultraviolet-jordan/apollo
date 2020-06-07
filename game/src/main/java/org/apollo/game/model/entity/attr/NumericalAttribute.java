@@ -16,7 +16,7 @@ public final class NumericalAttribute extends Attribute<Number> {
 	 * @return The type.
 	 */
 	private static AttributeType typeOf(Number value) {
-		return value instanceof Double ? AttributeType.DOUBLE : AttributeType.LONG;
+		return value instanceof Double ? AttributeType.DOUBLE : value instanceof  Integer ? AttributeType.INT : AttributeType.LONG;
 	}
 
 	/**
@@ -30,13 +30,13 @@ public final class NumericalAttribute extends Attribute<Number> {
 
 	@Override
 	public byte[] encode() {
-		long encoded = type == AttributeType.DOUBLE ? Double.doubleToLongBits(value.doubleValue()) : value.longValue();
+		long encoded = type == AttributeType.DOUBLE ? Double.doubleToLongBits(value.doubleValue()) : type == AttributeType.INT ? value.intValue() : value.longValue();
 		return Longs.toByteArray(encoded);
 	}
 
 	@Override
 	public String toString() {
-		return type == AttributeType.DOUBLE ? Double.toString(value.doubleValue()) : Long.toString(value.longValue());
+		return type == AttributeType.DOUBLE ? Double.toString(value.doubleValue()) : type == AttributeType.INT ? Integer.toString(value.intValue()) : Long.toString(value.longValue());
 	}
 
 }

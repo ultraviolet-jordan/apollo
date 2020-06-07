@@ -275,6 +275,9 @@ public final class BinaryPlayerSerializer extends PlayerSerializer {
 				case DOUBLE:
 					attribute = new NumericalAttribute(in.readDouble());
 					break;
+				case INT:
+					attribute = new NumericalAttribute(in.readInt());
+					break;
 				case LONG:
 					attribute = new NumericalAttribute(in.readLong());
 					break;

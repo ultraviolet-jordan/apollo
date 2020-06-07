@@ -19,6 +19,11 @@ public enum AttributeType {
 	DOUBLE,
 
 	/**
+	 * The integer attribute type.
+	 */
+	INT,
+
+	/**
 	 * The long attribute type.
 	 */
 	LONG,
