@@ -61,6 +61,7 @@ public class Release289 extends Release {
 		register(86, new ButtonMessageDecoder());
 		register(34, new CommandMessageDecoder());
 		register(193, new ArrowKeyMessageDecoder());
+		register(93, new ClosedInterfaceMessageDecoder());
 
 		register(177, new SecondItemOptionMessageDecoder());
 
