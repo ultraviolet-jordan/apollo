@@ -60,6 +60,7 @@ public class Release289 extends Release {
 		register(156, new PublicChatMessageDecoder());
 		register(86, new ButtonMessageDecoder());
 		register(34, new CommandMessageDecoder());
+		register(193, new ArrowKeyMessageDecoder());
 
 		register(177, new SecondItemOptionMessageDecoder());
 
