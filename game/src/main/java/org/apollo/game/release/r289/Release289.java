@@ -28,7 +28,7 @@ public class Release289 extends Release {
 		0, 0, 0, 0, 0, 0, -1, 0, 0, 0, // 150
 		0, 3, 0, 0, 0, 0, 0, 0, 0, 0, // 160
 		0, 0, 0, 0, 0, 0, 0, 6, 2, 0, // 170
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 180
+		0, 0, 0, 0, 0, 0, 0, 2, 0, 0, // 180
 		0, 0, 8, 4, 0, 0, 0, 0, 0, 0, // 190
 		0, 0, 0, 8, 4, 0, 0, 0, 0, 0, // 200
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 210
@@ -68,6 +68,8 @@ public class Release289 extends Release {
 
 		register(252, new FirstNpcActionMessageDecoder());
 		register(178, new SecondNpcActionMessageDecoder());
+
+		register(187, new FirstPlayerActionMessageDecoder());
 
 		register(253, new SwitchItemMessageDecoder());
 
