@@ -6,20 +6,43 @@ import org.apollo.game.model.entity.setting.ServerStatus
 import org.apollo.game.model.event.impl.LoginEvent
 
 on { AddFriendMessage::class }
-    .then {
-        it.addFriend(username)
-
-        val friend = it.world.getPlayer(username)
-
-        if (friend == null || friend.friendPrivacy == PrivacyState.OFF) {
-            it.send(SendFriendMessage(username, 0))
+    .then { player ->
+        if (player.friendsWith(username)) {
             return@then
-        } else {
-            it.send(SendFriendMessage(username, friend.worldId))
         }
 
-        if (friend.friendsWith(it.username) && it.friendPrivacy != PrivacyState.OFF) {
-            friend.send(SendFriendMessage(it.username, it.worldId))
+        player.addFriend(username)
+
+        val friend = player.world.getPlayer(username)
+
+        if (friend == null || friend.friendPrivacy == PrivacyState.OFF) {
+            player.send(SendFriendMessage(username, 0))
+            return@then
+        } else {
+            player.send(SendFriendMessage(username, friend.worldId))
+        }
+
+        if (friend.friendsWith(player.username) && player.friendPrivacy != PrivacyState.OFF) {
+            friend.send(SendFriendMessage(player.username, player.worldId))
+        }
+    }
+
+on { RemoveFriendMessage::class }
+    .then { player ->
+        if (!player.friendsWith(username)) {
+            return@then
+        }
+
+        val friendUsername = username
+        val playerUsername = player.username
+
+        player.removeFriend(friendUsername)
+        if (world.isPlayerOnline(friendUsername)) {
+            val friend = world.getPlayer(friendUsername)
+
+            if (friend.friendsWith(playerUsername) && player.friendPrivacy != PrivacyState.ON) {
+                friend.send(SendFriendMessage(playerUsername, 0))
+            }
         }
     }
 
