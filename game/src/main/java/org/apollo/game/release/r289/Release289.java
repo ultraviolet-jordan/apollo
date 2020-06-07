@@ -65,6 +65,8 @@ public class Release289 extends Release {
 
 		register(44, new FirstItemActionMessageDecoder());
 
+		register(252, new FirstNpcActionMessageDecoder());
+
 		register(253, new SwitchItemMessageDecoder());
 
 		register(235, new AddFriendMessageDecoder());
