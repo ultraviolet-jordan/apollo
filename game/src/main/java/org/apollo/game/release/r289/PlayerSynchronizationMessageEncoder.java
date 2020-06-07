@@ -233,6 +233,9 @@ public final class PlayerSynchronizationMessageEncoder extends MessageEncoder<Pl
 			if (blockSet.contains(ForceMovementBlock.class)) {
 				mask |= 0x200;
 			}
+			if (blockSet.contains(SecondaryHitUpdateBlock.class)) {
+				mask |= 0x400;
+			}
 
 			if (mask >= 0x100) {
 				mask |= 0x80;
@@ -267,6 +270,9 @@ public final class PlayerSynchronizationMessageEncoder extends MessageEncoder<Pl
 			}
 			if (blockSet.contains(ForceMovementBlock.class)) {
 				putForceMovementBlock(blockSet.get(ForceMovementBlock.class), builder);
+			}
+			if (blockSet.contains(SecondaryHitUpdateBlock.class)) {
+				putSecondHitUpdateBlock(blockSet.get(SecondaryHitUpdateBlock.class), builder);
 			}
 		}
 	}
@@ -405,9 +411,9 @@ public final class PlayerSynchronizationMessageEncoder extends MessageEncoder<Pl
 	 */
 	private static void putSecondHitUpdateBlock(SecondaryHitUpdateBlock block, GamePacketBuilder builder) {
 		builder.put(DataType.BYTE, block.getDamage());
-		builder.put(DataType.BYTE, DataTransformation.SUBTRACT, block.getType());
+		builder.put(DataType.BYTE, block.getType());
 		builder.put(DataType.BYTE, block.getCurrentHealth());
-		builder.put(DataType.BYTE, DataTransformation.NEGATE, block.getMaximumHealth());
+		builder.put(DataType.BYTE, block.getMaximumHealth());
 	}
 
 	/**
