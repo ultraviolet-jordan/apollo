@@ -215,6 +215,9 @@ public final class PlayerSynchronizationMessageEncoder extends MessageEncoder<Pl
 			if (blockSet.contains(InteractingMobBlock.class)) {
 				mask |= 0x4;
 			}
+			if (blockSet.contains(ForceChatBlock.class)) {
+				mask |= 0x8;
+			}
 			if (blockSet.contains(ChatBlock.class)) {
 				mask |= 0x40;
 			}
@@ -237,6 +240,9 @@ public final class PlayerSynchronizationMessageEncoder extends MessageEncoder<Pl
 			}
 			if (blockSet.contains(InteractingMobBlock.class)) {
 				putInteractingMobBlock(blockSet.get(InteractingMobBlock.class), builder);
+			}
+			if (blockSet.contains(ForceChatBlock.class)) {
+				putForceChatBlock(blockSet.get(ForceChatBlock.class), builder);
 			}
 			if (blockSet.contains(ChatBlock.class)) {
 				putChatBlock(blockSet.get(ChatBlock.class), builder);
