@@ -1,5 +1,6 @@
 import org.apollo.game.message.impl.ButtonMessage
 import org.apollo.game.message.impl.ConfigMessage
+import org.apollo.game.message.impl.UpdateRunEnergyMessage
 import org.apollo.game.model.entity.Player
 import org.apollo.game.model.event.impl.LoginEvent
 
@@ -16,6 +17,7 @@ on { ButtonMessage::class }
 on_player_event { LoginEvent::class }
     .then { player ->
         refresh(player)
+        player.send(UpdateRunEnergyMessage(player.runEnergy))
     }
 
 fun refresh(player: Player) {
