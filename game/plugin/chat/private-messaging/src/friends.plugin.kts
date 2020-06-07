@@ -1,7 +1,4 @@
-import org.apollo.game.message.impl.AddFriendMessage
-import org.apollo.game.message.impl.FriendServerStatusMessage
-import org.apollo.game.message.impl.IgnoreListMessage
-import org.apollo.game.message.impl.SendFriendMessage
+import org.apollo.game.message.impl.*
 import org.apollo.game.model.World
 import org.apollo.game.model.entity.Player
 import org.apollo.game.model.entity.setting.PrivacyState
@@ -27,25 +24,34 @@ on { AddFriendMessage::class }
     }
 
 on_player_event { LoginEvent::class }
-    .then {
-        it.send(FriendServerStatusMessage(ServerStatus.CONNECTING))
-        if (it.ignoredUsernames.size > 0) {
-            it.send(IgnoreListMessage(it.ignoredUsernames))
+    .then {player ->
+        player.send(FriendServerStatusMessage(ServerStatus.CONNECTING))
+        if (player.ignoredUsernames.size > 0) {
+            player.send(IgnoreListMessage(player.ignoredUsernames))
         }
 
-        val username = it.username
-        val iterator = it.friendUsernames.iterator();
+        val username = player.username
+        val iterator = player.friendUsernames.iterator();
 
         while (iterator.hasNext()) {
             val friendUsername = iterator.next()
-            val friend = it.world.getPlayer(friendUsername)
+            val friend = world.getPlayer(friendUsername)
             val world = if (friend == null || !viewable(friend, username)) 0 else friend.worldId
 
-            it.send(SendFriendMessage(friendUsername, world))
+            player.send(SendFriendMessage(friendUsername, world))
         }
 
-        it.send(FriendServerStatusMessage(ServerStatus.ONLINE))
-        updateFriends(player, it.world)
+        player.send(FriendServerStatusMessage(ServerStatus.ONLINE))
+        updateFriends(player, world)
+    }
+
+on { PrivacyOptionMessage::class }
+    .then { player ->
+        player.chatPrivacy = chatPrivacy
+        player.friendPrivacy = friendPrivacy
+        player.tradePrivacy = tradePrivacy
+
+        updateFriends(player, world)
     }
 
 fun viewable(player: Player, otherUsername: String): Boolean {
