@@ -221,6 +221,9 @@ public final class PlayerSynchronizationMessageEncoder extends MessageEncoder<Pl
 			if (blockSet.contains(HitUpdateBlock.class)) {
 				mask |= 0x10;
 			}
+			if (blockSet.contains(TurnToPositionBlock.class)) {
+				mask |= 0x20;
+			}
 			if (blockSet.contains(ChatBlock.class)) {
 				mask |= 0x40;
 			}
@@ -249,6 +252,9 @@ public final class PlayerSynchronizationMessageEncoder extends MessageEncoder<Pl
 			}
 			if (blockSet.contains(HitUpdateBlock.class)) {
 				putHitUpdateBlock(blockSet.get(HitUpdateBlock.class), builder);
+			}
+			if (blockSet.contains(TurnToPositionBlock.class)) {
+				putTurnToPositionBlock(blockSet.get(TurnToPositionBlock.class), builder);
 			}
 			if (blockSet.contains(ChatBlock.class)) {
 				putChatBlock(blockSet.get(ChatBlock.class), builder);
@@ -406,8 +412,8 @@ public final class PlayerSynchronizationMessageEncoder extends MessageEncoder<Pl
 	 */
 	private static void putTurnToPositionBlock(TurnToPositionBlock block, GamePacketBuilder builder) {
 		Position pos = block.getPosition();
-		builder.put(DataType.SHORT, DataOrder.LITTLE, DataTransformation.ADD, pos.getX() * 2 + 1);
-		builder.put(DataType.SHORT, DataOrder.LITTLE, pos.getY() * 2 + 1);
+		builder.put(DataType.SHORT, pos.getX() * 2 + 1);
+		builder.put(DataType.SHORT, pos.getY() * 2 + 1);
 	}
 
 }
