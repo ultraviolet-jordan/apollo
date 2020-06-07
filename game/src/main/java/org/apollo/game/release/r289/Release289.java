@@ -96,5 +96,6 @@ public class Release289 extends Release {
 		register(ForwardPrivateChatMessage.class, new ForwardPrivateChatMessageEncoder());
 		register(OpenInterfaceSidebarMessage.class, new OpenInterfaceSidebarMessageEncoder());
 		register(UpdateRunEnergyMessage.class, new UpdateRunEnergyMessageEncoder());
+		register(UpdateWeightMessage.class, new UpdateWeightMessageEncoder());
 	}
 }
