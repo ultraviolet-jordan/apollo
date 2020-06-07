@@ -11,4 +11,10 @@ on { AddIgnoreMessage::class }
         }
 
 on { RemoveIgnoreMessage::class }
-        .then { it.removeIgnore(username) }
+        .then { player ->
+            if (!player.hasIgnored(username)) {
+                return@then
+            }
+
+            player.removeIgnore(username)
+        }
