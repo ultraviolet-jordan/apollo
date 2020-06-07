@@ -218,6 +218,9 @@ public final class PlayerSynchronizationMessageEncoder extends MessageEncoder<Pl
 			if (blockSet.contains(ForceChatBlock.class)) {
 				mask |= 0x8;
 			}
+			if (blockSet.contains(HitUpdateBlock.class)) {
+				mask |= 0x10;
+			}
 			if (blockSet.contains(ChatBlock.class)) {
 				mask |= 0x40;
 			}
@@ -243,6 +246,9 @@ public final class PlayerSynchronizationMessageEncoder extends MessageEncoder<Pl
 			}
 			if (blockSet.contains(ForceChatBlock.class)) {
 				putForceChatBlock(blockSet.get(ForceChatBlock.class), builder);
+			}
+			if (blockSet.contains(HitUpdateBlock.class)) {
+				putHitUpdateBlock(blockSet.get(HitUpdateBlock.class), builder);
 			}
 			if (blockSet.contains(ChatBlock.class)) {
 				putChatBlock(blockSet.get(ChatBlock.class), builder);
@@ -313,8 +319,8 @@ public final class PlayerSynchronizationMessageEncoder extends MessageEncoder<Pl
 	 */
 	private static void putHitUpdateBlock(HitUpdateBlock block, GamePacketBuilder builder) {
 		builder.put(DataType.BYTE, block.getDamage());
-		builder.put(DataType.BYTE, DataTransformation.ADD, block.getType());
-		builder.put(DataType.BYTE, DataTransformation.NEGATE, block.getCurrentHealth());
+		builder.put(DataType.BYTE, block.getType());
+		builder.put(DataType.BYTE, block.getCurrentHealth());
 		builder.put(DataType.BYTE, block.getMaximumHealth());
 	}
 
