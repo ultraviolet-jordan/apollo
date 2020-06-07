@@ -20,7 +20,7 @@ public class Release289 extends Release {
 		0, 0, 0, 0, 0, 0, 6, 0, 0, 6, // 70
 		0, 0, 0, 0, 0, 0, 2, 0, 0, 0, // 80
 		0, 0, 0, 0, 10, 0, 0, 0, 0, 0, // 90
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 100
+		0, 0, 0, 0, 0, 0, 0, -1, 0, 0, // 100
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 110
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 120
 		-1, 0, 0, 0, 0, 0, 0, 1, 0, 0, // 130
@@ -72,6 +72,7 @@ public class Release289 extends Release {
 		register(192, new AddIgnoreMessageDecoder());
 		register(251, new RemoveIgnoreMessageDecoder());
 		register(161, new PrivacyOptionMessageDecoder());
+		register(107, new PrivateChatMessageDecoder());
 
 		//encoders
 		register(RegionChangeMessage.class, new RegionChangeMessageEncoder());
@@ -88,5 +89,6 @@ public class Release289 extends Release {
 		register(UpdateSlottedItemsMessage.class, new UpdateSlottedItemsMessageEncoder());
 		register(NpcSynchronizationMessage.class, new NpcSynchronizationMessageEncoder());
 		register(PrivacyOptionMessage.class, new PrivacyOptionMessageEncoder());
+		register(ForwardPrivateChatMessage.class, new ForwardPrivateChatMessageEncoder());
 	}
 }
