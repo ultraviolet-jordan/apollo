@@ -63,6 +63,7 @@ public class Release289 extends Release {
 		register(193, new ArrowKeyMessageDecoder());
 		register(93, new ClosedInterfaceMessageDecoder());
 		register(149, new FocusUpdateMessageDecoder());
+		register(181, new KeepAliveMessageDecoder());
 
 		register(177, new SecondItemOptionMessageDecoder());
 

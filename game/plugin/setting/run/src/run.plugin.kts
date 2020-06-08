@@ -10,16 +10,10 @@ val RUN_BUTTON_ID = 153
 on { ButtonMessage::class }
     .where { widgetId == WALK_BUTTON_ID || widgetId == RUN_BUTTON_ID }
     .then { player ->
-        player.toggleRunning()
-        refresh(player)
+        player.toggleRunning(widgetId == RUN_BUTTON_ID)
     }
 
 on_player_event { LoginEvent::class }
     .then { player ->
-        refresh(player)
-        player.send(UpdateRunEnergyMessage(player.runEnergy))
+        player.toggleRunning(player.isRunning)
     }
-
-fun refresh(player: Player) {
-    player.send(ConfigMessage(173, if (player.isRunning) 1 else 0))
-}

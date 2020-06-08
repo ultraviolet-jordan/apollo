@@ -50,6 +50,7 @@ import org.apollo.game.model.inv.InventoryListener;
 import org.apollo.game.model.inv.SynchronizationInventoryListener;
 import org.apollo.game.model.skill.LevelUpSkillListener;
 import org.apollo.game.model.skill.SynchronizationSkillListener;
+import org.apollo.game.scheduling.impl.PlayerEnergyTask;
 import org.apollo.game.session.GameSession;
 import org.apollo.game.sync.block.SynchronizationBlock;
 import org.apollo.net.message.Message;
@@ -79,7 +80,7 @@ public final class Player extends Mob {
 		AttributeMap.define("muted", AttributeDefinition.forBoolean(false, AttributePersistence.PERSISTENT));
 
 		AttributeMap.define("banned", AttributeDefinition.forBoolean(false, AttributePersistence.PERSISTENT));
-		AttributeMap.define("run_energy", AttributeDefinition.forInt(100, AttributePersistence.PERSISTENT));
+		AttributeMap.define("run_energy", AttributeDefinition.forInt(10_00, AttributePersistence.PERSISTENT));
 	}
 
 	/**
@@ -757,6 +758,7 @@ public final class Player extends Mob {
 		skillSet.forceRefresh();
 
 		world.submit(new LoginEvent(this));
+		world.schedule(new PlayerEnergyTask(this));
 	}
 
 	/**
@@ -895,7 +897,7 @@ public final class Player extends Mob {
 	 */
 	public void setRunEnergy(int energy) {
 		attributes.set("run_energy", new NumericalAttribute(energy));
-		send(new UpdateRunEnergyMessage(energy));
+		send(new UpdateRunEnergyMessage(energy / 100));
 	}
 
 	/**
@@ -983,9 +985,10 @@ public final class Player extends Mob {
 	/**
 	 * Toggles the player's run status.
 	 */
-	public void toggleRunning() {
-		running = !running;
+	public void toggleRunning(boolean running) {
+		this.running = running;
 		walkingQueue.setRunning(running);
+		send(new ConfigMessage(173, running ? 1 : 0));
 	}
 
 	/**
