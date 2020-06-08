@@ -80,7 +80,7 @@ public final class Player extends Mob {
 		AttributeMap.define("muted", AttributeDefinition.forBoolean(false, AttributePersistence.PERSISTENT));
 
 		AttributeMap.define("banned", AttributeDefinition.forBoolean(false, AttributePersistence.PERSISTENT));
-		AttributeMap.define("run_energy", AttributeDefinition.forInt(10_00, AttributePersistence.PERSISTENT));
+		AttributeMap.define("run_energy", AttributeDefinition.forInt(10_000, AttributePersistence.PERSISTENT));
 	}
 
 	/**
