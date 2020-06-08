@@ -2,7 +2,6 @@ package org.apollo.game.scheduling.impl;
 
 import org.apollo.game.model.entity.Player;
 import org.apollo.game.model.entity.Skill;
-import org.apollo.game.model.entity.WalkingQueue;
 import org.apollo.game.scheduling.ScheduledTask;
 
 public class PlayerEnergyTask extends ScheduledTask {
