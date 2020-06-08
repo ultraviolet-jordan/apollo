@@ -73,6 +73,8 @@ public class Release289 extends Release {
 		register(252, new FirstNpcActionMessageDecoder());
 		register(178, new SecondNpcActionMessageDecoder());
 
+		register(10, new FirstObjectActionMessageDecoder());
+
 		register(187, new FirstPlayerActionMessageDecoder());
 		register(69, new SecondPlayerActionMessageDecoder());
 
