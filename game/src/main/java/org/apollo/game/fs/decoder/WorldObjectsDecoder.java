@@ -60,7 +60,7 @@ public final class WorldObjectsDecoder implements Runnable {
 		try {
 			for (MapIndex index : mapIndices.values()) {
 				MapObjectsDecoder decoder = MapObjectsDecoder.create(fs, index);
-				List<MapObject> objects = decoder.decode().stream().filter(mapObject -> mapObject.getId() < ObjectDefinition.count()).collect(Collectors.toList());
+				List<MapObject> objects = decoder.decode();
 
 				int mapX = index.getX(), mapY = index.getY();
 
