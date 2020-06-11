@@ -3,7 +3,6 @@ package org.apollo.game.release.r289;
 import org.apollo.game.message.impl.GroupedRegionUpdateMessage;
 import org.apollo.game.message.impl.RegionUpdateMessage;
 import org.apollo.game.model.Position;
-import org.apollo.net.codec.game.DataTransformation;
 import org.apollo.net.codec.game.DataType;
 import org.apollo.net.codec.game.GamePacket;
 import org.apollo.net.codec.game.GamePacketBuilder;
