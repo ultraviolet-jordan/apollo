@@ -31,8 +31,8 @@ public final class GroupedRegionUpdateMessageEncoder extends MessageEncoder<Grou
 		GamePacketBuilder builder = new GamePacketBuilder(112, PacketType.VARIABLE_SHORT);
 		Position base = message.getLastKnownRegion(), region = message.getRegionPosition();
 
-		builder.put(DataType.BYTE, region.getLocalY(base));
 		builder.put(DataType.BYTE, region.getLocalX(base));
+		builder.put(DataType.BYTE, region.getLocalY(base));
 
 		for (RegionUpdateMessage update : message.getMessages()) {
 			@SuppressWarnings("unchecked")
