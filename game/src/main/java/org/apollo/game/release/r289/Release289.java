@@ -111,6 +111,7 @@ public class Release289 extends Release {
 		register(LogoutMessage.class, new LogoutMessageEncoder());
 
 		register(GroupedRegionUpdateMessage.class, new GroupedRegionUpdateMessageEncoder(this));
+		register(ClearRegionMessage.class, new ClearRegionMessageEncoder());
 		register(RemoveObjectMessage.class, new RemoveObjectMessageEncoder());
 		register(SendObjectMessage.class, new SendObjectMessageEncoder());
 	}
