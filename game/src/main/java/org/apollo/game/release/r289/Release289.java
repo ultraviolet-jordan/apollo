@@ -12,8 +12,8 @@ public class Release289 extends Release {
 	public static final int[] PACKET_LENGTHS = {
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 0
 		6, 0, 0, 0, 0, 0, 8, 0, 0, 0, // 10
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 20
-		0, 0, 0, 0, -1, 0, 0, 0, 0, 0, // 30
+		0, 2, 0, 0, 0, 0, 0, 0, 0, 0, // 20
+		2, 0, 0, 0, -1, 0, 0, 0, 0, 0, // 30
 		6, 0, 0, 0, 6, 0, 0, 0, 0, 0, // 40
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 50
 		0, 0, 0, 0, 0, 0, 0, -1, 0, 2, // 60
@@ -34,7 +34,7 @@ public class Release289 extends Release {
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 210
 		0, 0, 0, 0, 4, 0, 0, 0, 0, 0, // 220
 		0, 0, 0, 0, -1, 8, -1, 0, 0, 0, // 230
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 240
+		0, 0, 0, 0, 0, 0, 0, 2, 0, 0, // 240
 		0, 8, 2, 7, 0, 0 // 250
 	};
 
@@ -71,7 +71,10 @@ public class Release289 extends Release {
 		register(44, new FirstItemActionMessageDecoder());
 
 		register(252, new FirstNpcActionMessageDecoder());
-		register(178, new FourthNpcActionMessageDecoder());
+		register(21, new SecondNpcActionMessageDecoder());
+		register(178, new ThirdNpcActionMessageDecoder());
+		register(30, new FourthNpcActionMessageDecoder());
+		register(247, new FifthNpcActionMessageDecoder());
 
 		register(10, new FirstObjectActionMessageDecoder());
 
