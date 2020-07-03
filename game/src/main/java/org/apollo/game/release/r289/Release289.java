@@ -112,10 +112,10 @@ public class Release289 extends Release {
 		register(UpdateWeightMessage.class, new UpdateWeightMessageEncoder());
 		register(SetPlayerActionMessage.class, new SetPlayerActionMessageEncoder());
 		register(LogoutMessage.class, new LogoutMessageEncoder());
-
 		register(GroupedRegionUpdateMessage.class, new GroupedRegionUpdateMessageEncoder(this));
 		register(ClearRegionMessage.class, new ClearRegionMessageEncoder());
 		register(RemoveObjectMessage.class, new RemoveObjectMessageEncoder());
 		register(SendObjectMessage.class, new SendObjectMessageEncoder());
+		register(DisplayCrossbonesMessage.class, new DisplayCrossbonesMessageEncoder());
 	}
 }
