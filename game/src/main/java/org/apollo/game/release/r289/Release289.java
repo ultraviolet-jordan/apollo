@@ -71,7 +71,7 @@ public class Release289 extends Release {
 		register(44, new FirstItemActionMessageDecoder());
 
 		register(252, new FirstNpcActionMessageDecoder());
-		register(178, new SecondNpcActionMessageDecoder());
+		register(178, new FourthNpcActionMessageDecoder());
 
 		register(10, new FirstObjectActionMessageDecoder());
 

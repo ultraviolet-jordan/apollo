@@ -6,7 +6,7 @@ import org.apollo.net.codec.game.GamePacket;
 import org.apollo.net.codec.game.GamePacketReader;
 import org.apollo.net.release.MessageDecoder;
 
-public final class SecondNpcActionMessageDecoder extends MessageDecoder<NpcActionMessage> {
+public final class FourthNpcActionMessageDecoder extends MessageDecoder<NpcActionMessage> {
 
 	@Override
 	public NpcActionMessage decode(GamePacket packet) {
