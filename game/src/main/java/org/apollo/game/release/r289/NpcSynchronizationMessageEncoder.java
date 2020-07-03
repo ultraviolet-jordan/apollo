@@ -32,7 +32,7 @@ public final class NpcSynchronizationMessageEncoder extends MessageEncoder<NpcSy
 				putAddNpcUpdate((AddNpcSegment) segment, message, builder);
 				putBlocks(segment, blockBuilder);
 			} else {
-				putMovementUpdate(segment, message, builder);
+				putMovementUpdate(segment, builder);
 				putBlocks(segment, blockBuilder);
 			}
 		}
@@ -75,7 +75,7 @@ public final class NpcSynchronizationMessageEncoder extends MessageEncoder<NpcSy
 	 */
 	private static void putAnimationBlock(AnimationBlock block, GamePacketBuilder builder) {
 		Animation animation = block.getAnimation();
-		builder.put(DataType.SHORT, DataOrder.LITTLE, animation.getId());
+		builder.put(DataType.SHORT, animation.getId());
 		builder.put(DataType.BYTE, animation.getDelay());
 	}
 
@@ -90,7 +90,71 @@ public final class NpcSynchronizationMessageEncoder extends MessageEncoder<NpcSy
 		if (blockSet.size() > 0) {
 			int mask = 0;
 
+			if (blockSet.contains(HitUpdateBlock.class)) {
+				mask |= 0x1;
+			}
+
+			if (blockSet.contains(AnimationBlock.class)) {
+				mask |= 0x2;
+			}
+
+			if (blockSet.contains(InteractingMobBlock.class)) {
+				mask |= 0x4;
+			}
+
+			if (blockSet.contains(ForceChatBlock.class)) {
+				mask |= 0x8;
+			}
+
+			if (blockSet.contains(SecondaryHitUpdateBlock.class)) {
+				mask |= 0x10;
+			}
+
+			if (blockSet.contains(TransformBlock.class)) {
+				mask |= 0x20;
+			}
+
+			if (blockSet.contains(GraphicBlock.class)) {
+				mask |= 0x40;
+			}
+
+			if (blockSet.contains(TurnToPositionBlock.class)) {
+				mask |= 0x80;
+			}
+
 			builder.put(DataType.BYTE, mask);
+
+			if (blockSet.contains(HitUpdateBlock.class)) {
+				putHitUpdateBlock(blockSet.get(HitUpdateBlock.class), builder);
+			}
+
+			if (blockSet.contains(AnimationBlock.class)) {
+				putAnimationBlock(blockSet.get(AnimationBlock.class), builder);
+			}
+
+			if (blockSet.contains(InteractingMobBlock.class)) {
+				putInteractingMobBlock(blockSet.get(InteractingMobBlock.class), builder);
+			}
+
+			if (blockSet.contains(ForceChatBlock.class)) {
+				putForceChatBlock(blockSet.get(ForceChatBlock.class), builder);
+			}
+
+			if (blockSet.contains(SecondaryHitUpdateBlock.class)) {
+				putSecondHitUpdateBlock(blockSet.get(SecondaryHitUpdateBlock.class), builder);
+			}
+
+			if (blockSet.contains(TransformBlock.class)) {
+				putTransformBlock(blockSet.get(TransformBlock.class), builder);
+			}
+
+			if (blockSet.contains(GraphicBlock.class)) {
+				putGraphicBlock(blockSet.get(GraphicBlock.class), builder);
+			}
+
+			if (blockSet.contains(TurnToPositionBlock.class)) {
+				putTurnToPositionBlock(blockSet.get(TurnToPositionBlock.class), builder);
+			}
 		}
 	}
 
@@ -123,9 +187,9 @@ public final class NpcSynchronizationMessageEncoder extends MessageEncoder<NpcSy
 	 * @param builder The builder.
 	 */
 	private static void putHitUpdateBlock(HitUpdateBlock block, GamePacketBuilder builder) {
-		builder.put(DataType.BYTE, DataTransformation.ADD, block.getDamage());
-		builder.put(DataType.BYTE, DataTransformation.NEGATE, block.getType());
-		builder.put(DataType.BYTE, DataTransformation.ADD, block.getCurrentHealth());
+		builder.put(DataType.BYTE, block.getDamage());
+		builder.put(DataType.BYTE, block.getType());
+		builder.put(DataType.BYTE, block.getCurrentHealth());
 		builder.put(DataType.BYTE, block.getMaximumHealth());
 	}
 
@@ -143,10 +207,9 @@ public final class NpcSynchronizationMessageEncoder extends MessageEncoder<NpcSy
 	 * Puts a movement update for the specified segment.
 	 *
 	 * @param segment The segment.
-	 * @param message The message.
 	 * @param builder The builder.
 	 */
-	private static void putMovementUpdate(SynchronizationSegment segment, NpcSynchronizationMessage message, GamePacketBuilder builder) {
+	private static void putMovementUpdate(SynchronizationSegment segment, GamePacketBuilder builder) {
 		boolean updateRequired = segment.getBlockSet().size() > 0;
 		if (segment.getType() == SegmentType.RUN) {
 			Direction[] directions = ((MovementSegment) segment).getDirections();
@@ -161,13 +224,11 @@ public final class NpcSynchronizationMessageEncoder extends MessageEncoder<NpcSy
 			builder.putBits(2, 1);
 			builder.putBits(3, directions[0].toInteger());
 			builder.putBits(1, updateRequired ? 1 : 0);
+		} else if (updateRequired) {
+			builder.putBits(1, 1);
+			builder.putBits(2, 0);
 		} else {
-			if (updateRequired) {
-				builder.putBits(1, 1);
-				builder.putBits(2, 0);
-			} else {
-				builder.putBits(1, 0);
-			}
+			builder.putBits(1, 0);
 		}
 	}
 
@@ -188,10 +249,10 @@ public final class NpcSynchronizationMessageEncoder extends MessageEncoder<NpcSy
 	 * @param builder The builder.
 	 */
 	private static void putSecondHitUpdateBlock(SecondaryHitUpdateBlock block, GamePacketBuilder builder) {
-		builder.put(DataType.BYTE, DataTransformation.NEGATE, block.getDamage());
-		builder.put(DataType.BYTE, DataTransformation.SUBTRACT, block.getType());
-		builder.put(DataType.BYTE, DataTransformation.SUBTRACT, block.getCurrentHealth());
-		builder.put(DataType.BYTE, DataTransformation.NEGATE, block.getMaximumHealth());
+		builder.put(DataType.BYTE, block.getDamage());
+		builder.put(DataType.BYTE, block.getType());
+		builder.put(DataType.BYTE, block.getCurrentHealth());
+		builder.put(DataType.BYTE, block.getMaximumHealth());
 	}
 
 	/**
@@ -201,7 +262,7 @@ public final class NpcSynchronizationMessageEncoder extends MessageEncoder<NpcSy
 	 * @param builder The builder.
 	 */
 	private static void putTransformBlock(TransformBlock block, GamePacketBuilder builder) {
-		builder.put(DataType.SHORT, DataOrder.LITTLE, DataTransformation.ADD, block.getId());
+		builder.put(DataType.SHORT, block.getId());
 	}
 
 	/**
@@ -212,8 +273,8 @@ public final class NpcSynchronizationMessageEncoder extends MessageEncoder<NpcSy
 	 */
 	private static void putTurnToPositionBlock(TurnToPositionBlock block, GamePacketBuilder builder) {
 		Position position = block.getPosition();
-		builder.put(DataType.SHORT, DataOrder.LITTLE, position.getX() * 2 + 1);
-		builder.put(DataType.SHORT, DataOrder.LITTLE, position.getY() * 2 + 1);
+		builder.put(DataType.SHORT, position.getX() * 2 + 1);
+		builder.put(DataType.SHORT, position.getY() * 2 + 1);
 	}
 
 }
