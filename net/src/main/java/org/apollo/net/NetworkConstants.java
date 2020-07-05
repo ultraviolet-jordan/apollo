@@ -31,6 +31,11 @@ public final class NetworkConstants {
 	public static final int HTTP_PORT;
 
 	/**
+	 * The HTTP fallback port.
+	 */
+	public static final int HTTP_FALLBACK_PORT;
+
+	/**
 	 * The number of seconds before a connection becomes idle.
 	 */
 	public static final int IDLE_TIME = 15;
@@ -65,10 +70,11 @@ public final class NetworkConstants {
 			XmlNode ports = net.getChild("ports");
 			Preconditions.checkState(ports != null, "Root node must have a child named 'ports'.");
 
-			XmlNode http = ports.getChild("http"), service = ports.getChild("service"), jaggrab = ports.getChild("jaggrab");
+			XmlNode http = ports.getChild("http"), httpfallback = ports.getChild("httpfallback"), service = ports.getChild("service"), jaggrab = ports.getChild("jaggrab");
 			Preconditions.checkState(http != null && service != null && jaggrab != null, "Ports node must have three children: 'http', 'service', and 'jaggrab'.");
 
 			HTTP_PORT = Integer.parseInt(http.getValue());
+			HTTP_FALLBACK_PORT = Integer.parseInt(httpfallback.getValue());
 			SERVICE_PORT = Integer.parseInt(service.getValue());
 			JAGGRAB_PORT = Integer.parseInt(jaggrab.getValue());
 		} catch (Exception exception) {

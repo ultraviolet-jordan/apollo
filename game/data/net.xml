@@ -1,6 +1,7 @@
 <net>
   <ports>
     <http>80</http>
+    <httpfallback>8080</httpfallback>
     <service>43594</service>
     <jaggrab>43595</jaggrab>
   </ports>

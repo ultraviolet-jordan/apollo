@@ -108,7 +108,11 @@ public final class Server {
 			logger.fine("Binding HTTP listener to address: " + http + "...");
 			bind(httpBootstrap, http);
 		} catch (IOException cause) {
-			logger.log(Level.WARNING, "Unable to bind to HTTP - JAGGRAB will be used as a fallback.", cause);
+			try {
+				bind(httpBootstrap, new InetSocketAddress(NetworkConstants.HTTP_FALLBACK_PORT));
+			} catch (IOException cause2) {
+				logger.log(Level.WARNING, "Unable to bind to HTTP - JAGGRAB will be used as a fallback.", cause);
+			}
 		}
 
 		logger.fine("Binding JAGGRAB listener to address: " + jaggrab + "...");
