@@ -71,7 +71,7 @@ public final class WorldMapDecoder implements Runnable {
 				}
 			}
 		} catch (IOException ex) {
-			throw new UncheckedIOException(ex);
+			ex.printStackTrace();
 		}
 	}
 

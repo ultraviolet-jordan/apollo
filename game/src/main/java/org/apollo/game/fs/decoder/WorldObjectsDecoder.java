@@ -75,7 +75,7 @@ public final class WorldObjectsDecoder implements Runnable {
 				}
 			}
 		} catch (IOException ex) {
-			throw new UncheckedIOException(ex);
+			ex.printStackTrace();
 		}
 	}
 }
