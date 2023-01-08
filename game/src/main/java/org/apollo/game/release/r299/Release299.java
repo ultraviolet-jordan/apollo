@@ -3,6 +3,7 @@ package org.apollo.game.release.r299;
 import org.apollo.game.message.impl.PlayerSynchronizationMessage;
 import org.apollo.game.message.impl.RegionChangeMessage;
 import org.apollo.game.message.impl.SwitchTabInterfaceMessage;
+import org.apollo.game.message.impl.UpdateItemsMessage;
 import org.apollo.net.meta.PacketMetaDataGroup;
 import org.apollo.net.release.Release;
 
@@ -61,5 +62,6 @@ public class Release299 extends Release {
 		register(RegionChangeMessage.class, new RegionChangeMessageEncoder());
 		register(PlayerSynchronizationMessage.class, new PlayerSynchronizationMessageEncoder());
 		register(SwitchTabInterfaceMessage.class, new SwitchTabInterfaceMessageEncoder());
+		register(UpdateItemsMessage.class, new UpdateItemsMessageEncoder());
 	}
 }
