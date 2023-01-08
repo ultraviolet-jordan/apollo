@@ -18,8 +18,11 @@ public final class PacketMetaDataGroup {
 	 *             value below -3.
 	 */
 	public static PacketMetaDataGroup createFromArray(int[] lengths) {
-		Preconditions.checkArgument(lengths.length == 256, "Array length must be 256.");
-		PacketMetaDataGroup group = new PacketMetaDataGroup();
+		// Preconditions.checkArgument(lengths.length == 256, "Array length must be 256.");
+		// The above line was commented out and we now create the array in the constructor below.
+		// This was done because of the multi revision support. This makes it easier to construct the array properly.
+		// We do not care what the length is as long as the array is copied from the client.
+		PacketMetaDataGroup group = new PacketMetaDataGroup(lengths.length);
 
 		for (int index = 0; index < lengths.length; index++) {
 			int length = lengths[index];
@@ -40,13 +43,13 @@ public final class PacketMetaDataGroup {
 	/**
 	 * The array of packet meta data objects.
 	 */
-	private final PacketMetaData[] packets = new PacketMetaData[256];
+	private final PacketMetaData[] packets;
 
 	/**
 	 * This constructor should not be called directly. Use the {@link #createFromArray} method instead.
 	 */
-	private PacketMetaDataGroup() {
-
+	private PacketMetaDataGroup(int length) {
+		this.packets = new PacketMetaData[length];
 	}
 
 	/**
