@@ -5,6 +5,7 @@ import org.apollo.game.message.impl.ForwardPrivateChatMessage;
 import org.apollo.game.message.impl.FriendServerStatusMessage;
 import org.apollo.game.message.impl.IdAssignmentMessage;
 import org.apollo.game.message.impl.IgnoreListMessage;
+import org.apollo.game.message.impl.LogoutMessage;
 import org.apollo.game.message.impl.NpcSynchronizationMessage;
 import org.apollo.game.message.impl.OpenInterfaceSidebarMessage;
 import org.apollo.game.message.impl.PlayerSynchronizationMessage;
@@ -101,5 +102,6 @@ public class Release299 extends Release {
 		register(UpdateRunEnergyMessage.class, new UpdateRunEnergyMessageEncoder());
 		register(UpdateWeightMessage.class, new UpdateWeightMessageEncoder());
 		register(SetPlayerActionMessage.class, new SetPlayerActionMessageEncoder());
+		register(LogoutMessage.class, new LogoutMessageEncoder());
 	}
 }
