@@ -36,7 +36,7 @@ public class Release299 extends Release {
 			0, 0, 0, 6, 0, 6, 6, 0, 0, 4, // 210
 			0, 0, -1, 2, -1, 0, 0, 0, 0, 0, // 220
 			1, 0, 0, 2, 0, 3, 4, 0, 0, 6, // 230
-			4, 0, 3, 0, 0, 0, 0, 1, -2, 0, // 240
+			4, 0, 3, 0, 0, 0, 0, 1, -1, 0, // 240
 			8, 0, 0, -1, 0, 8 // 250-255
 	};
 
@@ -55,6 +55,7 @@ public class Release299 extends Release {
 		// decoders
 		register(37, new PublicChatMessageDecoder());
 		register(62, new ButtonMessageDecoder());
+		register(248, new CommandMessageDecoder());
 
 		// encoders
 		register(RegionChangeMessage.class, new RegionChangeMessageEncoder());
