@@ -6,7 +6,7 @@ import org.apollo.net.codec.game.GamePacket;
 import org.apollo.net.codec.game.GamePacketReader;
 import org.apollo.net.release.MessageDecoder;
 
-public final class FirstItemOptionMessageDecoder extends MessageDecoder<ItemOptionMessage> {
+public final class SecondItemOptionMessageDecoder extends MessageDecoder<ItemOptionMessage> {
 
 	@Override
 	public ItemOptionMessage decode(GamePacket packet) {
@@ -16,7 +16,7 @@ public final class FirstItemOptionMessageDecoder extends MessageDecoder<ItemOpti
 		int slot = (int) reader.getUnsigned(DataType.SHORT);
 		int interfaceId = (int) reader.getSigned(DataType.SHORT);
 
-		return new ItemOptionMessage(1, interfaceId, id, slot);
+		return new ItemOptionMessage(2, interfaceId, id, slot);
 	}
 
 }
