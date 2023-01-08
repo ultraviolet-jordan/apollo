@@ -3,6 +3,7 @@ package org.apollo.game.release.r299;
 import org.apollo.game.message.impl.ConfigMessage;
 import org.apollo.game.message.impl.ForwardPrivateChatMessage;
 import org.apollo.game.message.impl.FriendServerStatusMessage;
+import org.apollo.game.message.impl.GroupedRegionUpdateMessage;
 import org.apollo.game.message.impl.IdAssignmentMessage;
 import org.apollo.game.message.impl.IgnoreListMessage;
 import org.apollo.game.message.impl.LogoutMessage;
@@ -103,5 +104,6 @@ public class Release299 extends Release {
 		register(UpdateWeightMessage.class, new UpdateWeightMessageEncoder());
 		register(SetPlayerActionMessage.class, new SetPlayerActionMessageEncoder());
 		register(LogoutMessage.class, new LogoutMessageEncoder());
+		register(GroupedRegionUpdateMessage.class, new GroupedRegionUpdateMessageEncoder(this));
 	}
 }
