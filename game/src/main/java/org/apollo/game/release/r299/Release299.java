@@ -12,6 +12,7 @@ import org.apollo.game.message.impl.PrivacyOptionMessage;
 import org.apollo.game.message.impl.RegionChangeMessage;
 import org.apollo.game.message.impl.SendFriendMessage;
 import org.apollo.game.message.impl.ServerChatMessage;
+import org.apollo.game.message.impl.SetPlayerActionMessage;
 import org.apollo.game.message.impl.SwitchTabInterfaceMessage;
 import org.apollo.game.message.impl.UpdateItemsMessage;
 import org.apollo.game.message.impl.UpdateRunEnergyMessage;
@@ -99,5 +100,6 @@ public class Release299 extends Release {
 		register(OpenInterfaceSidebarMessage.class, new OpenInterfaceSidebarMessageEncoder());
 		register(UpdateRunEnergyMessage.class, new UpdateRunEnergyMessageEncoder());
 		register(UpdateWeightMessage.class, new UpdateWeightMessageEncoder());
+		register(SetPlayerActionMessage.class, new SetPlayerActionMessageEncoder());
 	}
 }
