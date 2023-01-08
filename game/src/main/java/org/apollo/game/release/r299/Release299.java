@@ -1,5 +1,6 @@
 package org.apollo.game.release.r299;
 
+import org.apollo.game.message.impl.ClearRegionMessage;
 import org.apollo.game.message.impl.ConfigMessage;
 import org.apollo.game.message.impl.ForwardPrivateChatMessage;
 import org.apollo.game.message.impl.FriendServerStatusMessage;
@@ -105,5 +106,6 @@ public class Release299 extends Release {
 		register(SetPlayerActionMessage.class, new SetPlayerActionMessageEncoder());
 		register(LogoutMessage.class, new LogoutMessageEncoder());
 		register(GroupedRegionUpdateMessage.class, new GroupedRegionUpdateMessageEncoder(this));
+		register(ClearRegionMessage.class, new ClearRegionMessageEncoder());
 	}
 }
