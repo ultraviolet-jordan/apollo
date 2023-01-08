@@ -3,6 +3,7 @@ package org.apollo.game.release.r299;
 import org.apollo.game.message.impl.ConfigMessage;
 import org.apollo.game.message.impl.FriendServerStatusMessage;
 import org.apollo.game.message.impl.IdAssignmentMessage;
+import org.apollo.game.message.impl.IgnoreListMessage;
 import org.apollo.game.message.impl.NpcSynchronizationMessage;
 import org.apollo.game.message.impl.PlayerSynchronizationMessage;
 import org.apollo.game.message.impl.RegionChangeMessage;
@@ -85,5 +86,6 @@ public class Release299 extends Release {
 		register(ConfigMessage.class, new ConfigMessageEncoder());
 		register(IdAssignmentMessage.class, new IdAssignmentMessageEncoder());
 		register(FriendServerStatusMessage.class, new FriendServerStatusMessageEncoder());
+		register(IgnoreListMessage.class, new IgnoreListMessageEncoder());
 	}
 }
