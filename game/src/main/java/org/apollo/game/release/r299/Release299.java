@@ -7,6 +7,7 @@ import org.apollo.game.message.impl.IgnoreListMessage;
 import org.apollo.game.message.impl.NpcSynchronizationMessage;
 import org.apollo.game.message.impl.PlayerSynchronizationMessage;
 import org.apollo.game.message.impl.RegionChangeMessage;
+import org.apollo.game.message.impl.SendFriendMessage;
 import org.apollo.game.message.impl.ServerChatMessage;
 import org.apollo.game.message.impl.SwitchTabInterfaceMessage;
 import org.apollo.game.message.impl.UpdateItemsMessage;
@@ -87,5 +88,6 @@ public class Release299 extends Release {
 		register(IdAssignmentMessage.class, new IdAssignmentMessageEncoder());
 		register(FriendServerStatusMessage.class, new FriendServerStatusMessageEncoder());
 		register(IgnoreListMessage.class, new IgnoreListMessageEncoder());
+		register(SendFriendMessage.class, new SendFriendMessageEncoder());
 	}
 }
