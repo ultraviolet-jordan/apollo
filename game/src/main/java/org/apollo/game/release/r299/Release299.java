@@ -13,6 +13,7 @@ import org.apollo.game.message.impl.OpenInterfaceSidebarMessage;
 import org.apollo.game.message.impl.PlayerSynchronizationMessage;
 import org.apollo.game.message.impl.PrivacyOptionMessage;
 import org.apollo.game.message.impl.RegionChangeMessage;
+import org.apollo.game.message.impl.RemoveObjectMessage;
 import org.apollo.game.message.impl.SendFriendMessage;
 import org.apollo.game.message.impl.ServerChatMessage;
 import org.apollo.game.message.impl.SetPlayerActionMessage;
@@ -107,5 +108,6 @@ public class Release299 extends Release {
 		register(LogoutMessage.class, new LogoutMessageEncoder());
 		register(GroupedRegionUpdateMessage.class, new GroupedRegionUpdateMessageEncoder(this));
 		register(ClearRegionMessage.class, new ClearRegionMessageEncoder());
+		register(RemoveObjectMessage.class, new RemoveObjectMessageEncoder());
 	}
 }
