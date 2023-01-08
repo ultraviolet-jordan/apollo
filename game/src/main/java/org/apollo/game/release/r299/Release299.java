@@ -14,11 +14,11 @@ public class Release299 extends Release {
 	public static final int[] PACKET_LENGTHS = {
 			7, 0, 6, 0, 0, 0, 0, 0, 0, 2, // 0
 			0, 0, -1, 8, 0, 0, 0, 0, 0, 0, // 10
-			4, 0, 0, 0, 1, 10, 0, 0, 0, 0, // 20
+			4, 0, 0, 0, 1, 10, 4, 0, 0, 0, // 20
 			0, 0, 0, 0, 0, 0, 8, -1, 7, 12, // 30
 			0, 10, 6, 0, 0, 0, 6, -1, 0, 0, // 40
-			0, 0, 1, 4, 0, 0, 0, 0, 0, 0, // 50
-			6, 0, 6, 0, 0, 0, 0, 0, 0, 0, // 60
+			0, 0, 1, 4, 0, 0, 0, 0, 4, 0, // 50
+			6, 0, 2, 0, 0, 0, 0, 0, 0, 0, // 60
 			-1, 0, 2, 1, 6, 0, 0, 0, 0, 0, // 70
 			0, 0, 6, 0, 0, 0, -1, 0, 0, 0, // 80
 			-1, 8, 0, 7, 1, 0, 0, 0, 2, 0, // 90
@@ -31,7 +31,7 @@ public class Release299 extends Release {
 			0, 0, 0, 0, 0, 0, 2, 0, 0, 6, // 160
 			0, 0, 0, 0, 2, 0, 0, 0, 0, 6, // 170
 			0, 4, 0, 0, 0, 6, 0, 6, 1, 2, // 180
-			0, 0, 0, 0, 0, 0, -1, 0, 0, 0, // 190
+			0, 0, 0, 0, 0, 8, -1, 0, 0, 0, // 190
 			0, 2, 0, 0, 0, 0, 0, -1, 0, 0, // 200
 			0, 0, 0, 6, 0, 6, 6, 0, 0, 4, // 210
 			0, 0, -1, 2, -1, 0, 0, 0, 0, 0, // 220
@@ -52,6 +52,9 @@ public class Release299 extends Release {
 	 * Initialises this release by registering encoders and decoders.
 	 */
 	private void init() {
+		// decoders
+		register(37, new PublicChatMessageDecoder());
+
 		// encoders
 		register(RegionChangeMessage.class, new RegionChangeMessageEncoder());
 		register(PlayerSynchronizationMessage.class, new PlayerSynchronizationMessageEncoder());
