@@ -13,7 +13,7 @@ public final class UpdateSlottedItemsMessageEncoder extends MessageEncoder<Updat
 
 	@Override
 	public GamePacket encode(UpdateSlottedItemsMessage message) {
-		GamePacketBuilder builder = new GamePacketBuilder(172, PacketType.VARIABLE_SHORT);
+		GamePacketBuilder builder = new GamePacketBuilder(13, PacketType.VARIABLE_SHORT);
 		SlottedItem[] items = message.getSlottedItems();
 
 		builder.put(DataType.SHORT, message.getInterfaceId());
