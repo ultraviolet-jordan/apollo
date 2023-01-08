@@ -6,6 +6,7 @@ import org.apollo.game.message.impl.FriendServerStatusMessage;
 import org.apollo.game.message.impl.IdAssignmentMessage;
 import org.apollo.game.message.impl.IgnoreListMessage;
 import org.apollo.game.message.impl.NpcSynchronizationMessage;
+import org.apollo.game.message.impl.OpenInterfaceSidebarMessage;
 import org.apollo.game.message.impl.PlayerSynchronizationMessage;
 import org.apollo.game.message.impl.PrivacyOptionMessage;
 import org.apollo.game.message.impl.RegionChangeMessage;
@@ -93,5 +94,6 @@ public class Release299 extends Release {
 		register(SendFriendMessage.class, new SendFriendMessageEncoder());
 		register(PrivacyOptionMessage.class, new PrivacyOptionMessageEncoder());
 		register(ForwardPrivateChatMessage.class, new ForwardPrivateChatMessageEncoder());
+		register(OpenInterfaceSidebarMessage.class, new OpenInterfaceSidebarMessageEncoder());
 	}
 }
