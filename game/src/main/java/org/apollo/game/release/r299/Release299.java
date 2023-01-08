@@ -14,6 +14,7 @@ import org.apollo.game.message.impl.SendFriendMessage;
 import org.apollo.game.message.impl.ServerChatMessage;
 import org.apollo.game.message.impl.SwitchTabInterfaceMessage;
 import org.apollo.game.message.impl.UpdateItemsMessage;
+import org.apollo.game.message.impl.UpdateRunEnergyMessage;
 import org.apollo.game.message.impl.UpdateSkillMessage;
 import org.apollo.game.message.impl.UpdateSlottedItemsMessage;
 import org.apollo.net.meta.PacketMetaDataGroup;
@@ -95,5 +96,6 @@ public class Release299 extends Release {
 		register(PrivacyOptionMessage.class, new PrivacyOptionMessageEncoder());
 		register(ForwardPrivateChatMessage.class, new ForwardPrivateChatMessageEncoder());
 		register(OpenInterfaceSidebarMessage.class, new OpenInterfaceSidebarMessageEncoder());
+		register(UpdateRunEnergyMessage.class, new UpdateRunEnergyMessageEncoder());
 	}
 }
