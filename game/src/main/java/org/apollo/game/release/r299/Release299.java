@@ -55,6 +55,11 @@ public class Release299 extends Release {
 	 */
 	private void init() {
 		// decoders
+		WalkMessageDecoder walkMessageDecoder = new WalkMessageDecoder();
+		register(141, walkMessageDecoder);
+		register(196, walkMessageDecoder);
+		register(70, walkMessageDecoder);
+
 		register(37, new PublicChatMessageDecoder());
 		register(62, new ButtonMessageDecoder());
 		register(248, new CommandMessageDecoder());
