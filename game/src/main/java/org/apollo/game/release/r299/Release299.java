@@ -1,6 +1,7 @@
 package org.apollo.game.release.r299;
 
 import org.apollo.game.message.impl.ConfigMessage;
+import org.apollo.game.message.impl.ForwardPrivateChatMessage;
 import org.apollo.game.message.impl.FriendServerStatusMessage;
 import org.apollo.game.message.impl.IdAssignmentMessage;
 import org.apollo.game.message.impl.IgnoreListMessage;
@@ -91,5 +92,6 @@ public class Release299 extends Release {
 		register(IgnoreListMessage.class, new IgnoreListMessageEncoder());
 		register(SendFriendMessage.class, new SendFriendMessageEncoder());
 		register(PrivacyOptionMessage.class, new PrivacyOptionMessageEncoder());
+		register(ForwardPrivateChatMessage.class, new ForwardPrivateChatMessageEncoder());
 	}
 }
