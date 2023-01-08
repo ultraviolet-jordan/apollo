@@ -83,9 +83,10 @@ public class Release299 extends Release {
 		register(37, new PublicChatMessageDecoder());
 		register(62, new ButtonMessageDecoder());
 		register(248, new CommandMessageDecoder());
+		register(169, new ArrowKeyMessageDecoder());
+		register(247, new FocusUpdateMessageDecoder());
 		register(238, new FirstObjectActionMessageDecoder());
 		register(156, new FirstItemActionMessageDecoder());
-		register(169, new ArrowKeyMessageDecoder());
 
 		// encoders
 		register(RegionChangeMessage.class, new RegionChangeMessageEncoder());
