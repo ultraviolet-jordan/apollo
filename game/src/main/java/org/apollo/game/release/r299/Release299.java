@@ -70,6 +70,7 @@ public class Release299 extends Release {
 		register(248, new CommandMessageDecoder());
 		register(238, new FirstObjectActionMessageDecoder());
 		register(156, new FirstItemActionMessageDecoder());
+		register(169, new ArrowKeyMessageDecoder());
 
 		// encoders
 		register(RegionChangeMessage.class, new RegionChangeMessageEncoder());
