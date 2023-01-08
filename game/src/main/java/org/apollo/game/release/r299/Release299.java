@@ -54,6 +54,7 @@ public class Release299 extends Release {
 	private void init() {
 		// decoders
 		register(37, new PublicChatMessageDecoder());
+		register(62, new ButtonMessageDecoder());
 
 		// encoders
 		register(RegionChangeMessage.class, new RegionChangeMessageEncoder());
