@@ -2,6 +2,7 @@ package org.apollo.game.release.r299;
 
 import org.apollo.game.message.impl.ClearRegionMessage;
 import org.apollo.game.message.impl.ConfigMessage;
+import org.apollo.game.message.impl.DisplayCrossbonesMessage;
 import org.apollo.game.message.impl.ForwardPrivateChatMessage;
 import org.apollo.game.message.impl.FriendServerStatusMessage;
 import org.apollo.game.message.impl.GroupedRegionUpdateMessage;
@@ -111,5 +112,6 @@ public class Release299 extends Release {
 		register(ClearRegionMessage.class, new ClearRegionMessageEncoder());
 		register(RemoveObjectMessage.class, new RemoveObjectMessageEncoder());
 		register(SendObjectMessage.class, new SendObjectMessageEncoder());
+		register(DisplayCrossbonesMessage.class, new DisplayCrossbonesMessageEncoder());
 	}
 }
