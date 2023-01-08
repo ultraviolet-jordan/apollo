@@ -1,5 +1,6 @@
 package org.apollo.game.release.r299;
 
+import org.apollo.game.message.impl.ConfigMessage;
 import org.apollo.game.message.impl.PlayerSynchronizationMessage;
 import org.apollo.game.message.impl.RegionChangeMessage;
 import org.apollo.game.message.impl.ServerChatMessage;
@@ -75,5 +76,6 @@ public class Release299 extends Release {
 		register(UpdateSlottedItemsMessage.class, new UpdateSlottedItemsMessageEncoder());
 		register(UpdateSkillMessage.class, new UpdateSkillMessageEncoder());
 		register(ServerChatMessage.class, new ServerMessageMessageEncoder());
+		register(ConfigMessage.class, new ConfigMessageEncoder());
 	}
 }
