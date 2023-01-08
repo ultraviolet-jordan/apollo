@@ -46,14 +46,14 @@ public class Release299 extends Release {
 			-1, 8, 0, 7, 1, 0, 0, 4, 6, 0, // 90
 			0, 8, 4, 6, 0, 0, 8, 0, 6, 2, // 100
 			0, 0, 0, 0, 0, 0, 0, 6, 0, 0, // 110
-			0, 0, 0, 6, 8, 13, 0, 6, 0, 0, // 120
+			0, 0, 0, 6, 8, 6, 0, 6, 0, 0, // 120
 			0, 0, 0, 0, 0, 8, 12, 10, -1, -1, // 130
 			0, -1, 0, 0, 0, 0, 0, 2, 0, -1, // 140
 			8, 0, 0, 0, 3, 0, 6, 6, 0, 0, // 150
 			0, 0, 0, 0, 0, 0, 2, 0, 0, 4, // 160
 			0, 0, 0, 0, 2, 0, 0, 0, 0, 6, // 170
 			0, 4, 0, 0, 0, 6, 0, 6, 2, 2, // 180
-			0, 0, 0, 0, 0, 8, -1, 0, 0, 0, // 190
+			0, 0, 0, 0, 0, 8, -1, 0, 6, 0, // 190
 			0, 2, 0, 0, 0, 0, 0, 6, 0, 0, // 200
 			0, 0, 0, 6, 0, 12, 6, 0, 0, 4, // 210
 			0, 0, -1, 2, -1, 0, 0, 0, 0, 0, // 220
@@ -86,7 +86,9 @@ public class Release299 extends Release {
 		register(169, new ArrowKeyMessageDecoder());
 		register(247, new FocusUpdateMessageDecoder());
 		register(238, new FirstObjectActionMessageDecoder());
-		register(156, new FirstItemActionMessageDecoder());
+
+		register(198, new FirstItemActionMessageDecoder());
+		register(156, new SecondItemOptionMessageDecoder());
 
 		// encoders
 		register(RegionChangeMessage.class, new RegionChangeMessageEncoder());
