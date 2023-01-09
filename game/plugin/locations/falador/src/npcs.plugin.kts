@@ -25,8 +25,8 @@ spawnNpc("dwarf", id = 382, x = 3017, y = 3340)
 //spawnNpc("dwarf", id = 3294, x = 3022, y = 3338)
 //spawnNpc("dwarf", id = 3295, x = 3021, y = 3341)
 
-spawnNpc("gardener", x = 2998, y = 3385)
-spawnNpc("gardener", x = 3019, y = 3369)
+//spawnNpc("gardener", x = 2998, y = 3385)
+//spawnNpc("gardener", x = 3019, y = 3369)
 //spawnNpc("gardener", id = 3234, x = 3016, y = 3386)
 
 spawnNpc("guard", x = 2965, y = 3394)

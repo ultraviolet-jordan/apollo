@@ -144,7 +144,7 @@ public final class Server {
 		ServerContext context = new ServerContext(release, services, fs);
 		ApolloHandler handler = new ApolloHandler(context);
 
-		ChannelInitializer<SocketChannel> service = new ServiceChannelInitializer(handler);
+		ChannelInitializer<SocketChannel> service = new ServiceChannelInitializer(version, handler);
 		serviceBootstrap.channel(NioServerSocketChannel.class);
 		serviceBootstrap.childHandler(service);
 

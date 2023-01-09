@@ -25,6 +25,12 @@ public final class HandshakeDecoder extends ByteToMessageDecoder {
 	 */
 	private static final Logger logger = Logger.getLogger(HandshakeDecoder.class.getName());
 
+	private final int releaseVersion;
+
+	public HandshakeDecoder(int releaseVersion) {
+		this.releaseVersion = releaseVersion;
+	}
+
 	@Override
 	protected void decode(ChannelHandlerContext ctx, ByteBuf buffer, List<Object> out) {
 		if (!buffer.isReadable()) {
@@ -36,7 +42,7 @@ public final class HandshakeDecoder extends ByteToMessageDecoder {
 		switch (id) {
 			case HandshakeConstants.SERVICE_GAME:
 				ctx.pipeline().addFirst("loginEncoder", new LoginEncoder());
-				ctx.pipeline().addAfter("handshakeDecoder", "loginDecoder", new LoginDecoder());
+				ctx.pipeline().addAfter("handshakeDecoder", "loginDecoder", new LoginDecoder(releaseVersion));
 				break;
 
 			case HandshakeConstants.SERVICE_UPDATE:

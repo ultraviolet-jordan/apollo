@@ -38,6 +38,8 @@ public final class LoginDecoder extends StatefulFrameDecoder<LoginDecoderState> 
 	 */
 	private static final SecureRandom RANDOM = new SecureRandom();
 
+	private final int releaseVersion;
+
 	/**
 	 * The login packet length.
 	 */
@@ -61,8 +63,9 @@ public final class LoginDecoder extends StatefulFrameDecoder<LoginDecoderState> 
 	/**
 	 * Creates the login decoder with the default initial state.
 	 */
-	public LoginDecoder() {
+	public LoginDecoder(int releaseVersion) {
 		super(LoginDecoderState.LOGIN_HANDSHAKE);
+		this.releaseVersion = releaseVersion;
 	}
 
 	@Override
@@ -138,9 +141,18 @@ public final class LoginDecoder extends StatefulFrameDecoder<LoginDecoderState> 
 	private void decodePayload(ChannelHandlerContext ctx, ByteBuf buffer, List<Object> out) {
 		if (buffer.readableBytes() >= loginLength) {
 			ByteBuf payload = buffer.readBytes(loginLength);
-			int version = 255 - payload.readUnsignedByte();
+			int version = -1;
+			if (releaseVersion != 254) {
+				// Client 254 does not use this byte.
+				version = 255 - payload.readUnsignedByte();
+			}
 
-			int release = payload.readUnsignedShort();
+			int release;
+			if (releaseVersion == 254) {
+				release = payload.readUnsignedByte();
+			} else {
+				release = payload.readUnsignedShort();
+			}
 
 			int memoryStatus = payload.readUnsignedByte();
 			if (memoryStatus != 0 && memoryStatus != 1) {
@@ -157,7 +169,7 @@ public final class LoginDecoder extends StatefulFrameDecoder<LoginDecoderState> 
 			}
 
 			int length = payload.readUnsignedByte();
-			if (length != loginLength - 41) {
+			if (length != loginLength - (releaseVersion == 254 ? 39 : 41)) {
 				logger.fine("Login packet unexpected length (" + length + ")");
 				writeResponseCode(ctx, LoginConstants.STATUS_LOGIN_SERVER_REJECTED_SESSION);
 				return;

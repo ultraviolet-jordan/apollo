@@ -15,6 +15,8 @@ import org.apollo.net.codec.handshake.HandshakeDecoder;
  */
 public final class ServiceChannelInitializer extends ChannelInitializer<SocketChannel> {
 
+	private final int releaseVersion;
+
 	/**
 	 * The network event handler.
 	 */
@@ -25,14 +27,15 @@ public final class ServiceChannelInitializer extends ChannelInitializer<SocketCh
 	 *
 	 * @param handler The networking event handler.
 	 */
-	public ServiceChannelInitializer(ChannelInboundHandlerAdapter handler) {
+	public ServiceChannelInitializer(int releaseVersion, ChannelInboundHandlerAdapter handler) {
+		this.releaseVersion = releaseVersion;
 		this.handler = handler;
 	}
 
 	@Override
 	protected void initChannel(SocketChannel ch) throws Exception {
 		ChannelPipeline pipeline = ch.pipeline();
-		pipeline.addLast("handshakeDecoder", new HandshakeDecoder());
+		pipeline.addLast("handshakeDecoder", new HandshakeDecoder(releaseVersion));
 		pipeline.addLast("timeout", new IdleStateHandler(NetworkConstants.IDLE_TIME, 0, 0));
 		pipeline.addLast("handler", handler);
 	}
